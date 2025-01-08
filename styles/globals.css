@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #363333;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.angled-lines::before,
+.angled-lines::after {
+  content: '';
+  position: absolute;
+  height: 150%; /* Make sure the lines extend beyond the height */
+  width: 150px; /* Adjust width for line thickness */
+  background-color: rgba(211, 211, 211, 0.3); /* Gray color with transparency */
+  transform: rotate(-45deg); /* Angle for opposite side */
+  right: 50px; /* Adjust this to align the lines with the right side */
+  z-index: 0; /* Ensure lines are in the background */
+}
+
+.angled-lines::after {
+  top: 100px; /* Adjust to create space between lines */
+  right: -350px; /* Slight offset for the second line */
+}
+
+
