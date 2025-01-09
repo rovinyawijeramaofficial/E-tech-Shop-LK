@@ -21,7 +21,7 @@ export default function SmartDevicesCard() {
         {jobs.map((job) => (
           <div
             key={job.id}
-            className="bg-white p-8 rounded-lg shadow-md flex-shrink-0 w-80 relative"
+            className=" p-8  flex-shrink-0 w-80 relative -mt-10"
           >
             {/* Logo (Image of the Product) */}
             <div className="flex justify-center">
