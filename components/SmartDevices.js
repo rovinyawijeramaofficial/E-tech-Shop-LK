@@ -3,28 +3,26 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import TabletsCard from "./SmartDevicesCard";
+import SmartDevicesCard from "./SmartDevicesCard";
 import Link from "next/link";
 
 const jobsData = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
   companyLogo: "/images/aerfin-logo.png",
- 
 }));
 
 export default function FeaturedProduct() {
   return (
-    <div className="p-4 sm:p-6 md:p-10 bg-gray-100 ">
+    <div className="p-4 sm:p-6 md:p-10 bg-gray-100 -mt-20">
+
       {/* Header Section */}
       <div className="pt-10 flex justify-between items-center mb-6">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black-900">
-     
         </h2>
         <Link
           href="/jobSearch"
           className="text-blue-900 font-bold text-sm sm:text-base flex items-center"
         >
-          
         </Link>
       </div>
 
@@ -54,7 +52,7 @@ export default function FeaturedProduct() {
             >
               <Link href={`/job/${job.id}`}>
                 <div>
-                  <TabletsCard job={job} />
+                  <SmartDevicesCard job={job} />
                 </div>
               </Link>
             </SwiperSlide>
