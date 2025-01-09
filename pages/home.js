@@ -1,3 +1,5 @@
+// pages/home.js
+
 import OnSaleProducts from "@/components/OnSaleProducts";
 import CustomerReviews from "@/components/CustomerReviews";
 import FeaturedProduct from "@/components/FeaturedProduct";
@@ -8,7 +10,7 @@ import DiscountBanner from "@/components/DiscountBanner";
 import SmartDevices from "@/components/SmartDevices";
 import Image from "next/image";
 
-export default function home() {
+export default function Home() {
   return (
     <>
       <Header />
@@ -29,7 +31,7 @@ export default function home() {
       </div>
 
       <DisplayBanner />
-      <SmartDevices/>
+      <SmartDevices />
       <FeaturedProduct />
       <OnSaleProducts />
       <DiscountBanner />
