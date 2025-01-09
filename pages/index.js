@@ -1,19 +1,15 @@
-import { Poppins } from 'next/font/google';
+import { useEffect } from "react";
+import { useRouter } from "next/router"; // Import useRouter from next/router
 
-// Load Poppins font with specified weights
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'], // Load specific weights
-});
+const IndexPage = () => {
+  const router = useRouter(); // Initialize the router
 
-export default function HomePage() {
-  return (
-    <div className={`${poppins.className} w-full h-screen flex items-center justify-center`}>
-      <input
-        type="text"
-        placeholder='Try searching "Smart TV"'
-        className="w-[266px] h-[30px] px-6 bg-transparent focus:outline-none placeholder-black text-left text-[18px] leading-[29.12px] text-black font-light border border-black"
-      />
-    </div>
-  );
-}
+  useEffect(() => {
+    // Redirect to the home page immediately when the component mounts
+    router.push("/home");
+  }, [router]); // The useEffect hook runs once when the component mounts
+
+  return null; // No UI is rendered on the index page since we just need the redirection
+};
+
+export default IndexPage;
