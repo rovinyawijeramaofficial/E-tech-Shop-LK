@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#5a3d2b] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
 
           {/* Links */}
           <div className="grid grid-cols-2 gap-8">
