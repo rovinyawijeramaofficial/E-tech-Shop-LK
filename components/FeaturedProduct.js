@@ -24,7 +24,7 @@ export default function FeaturedProduct() {
         Featured Product
         </h2>
         <Link
-          href="/jobSearch"
+          href="/allreviews"
           className="text-blue-900 font-bold text-sm sm:text-base flex items-center"
         >
           View All
