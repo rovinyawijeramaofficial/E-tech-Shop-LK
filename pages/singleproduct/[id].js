@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
@@ -149,25 +150,37 @@ const SingleProduct = () => {
           </div>
         </div>
 
-        {/* Reviews Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold mb-4">Reviews</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[1, 2].map((_, index) => (
-              <div
-                key={index}
-                className="border rounded-lg p-4 flex flex-col space-y-2"
-              >
-                <h4 className="font-bold">John Doe</h4>
-                <p className="text-yellow-500">★★★★★</p>
-                <p className="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  enim ad minim veniam.
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+   {/* Reviews Section */}
+<div className="mt-16">
+  <div className="flex justify-between items-center mb-6">
+    <h2 className="text-2xl font-bold">Reviews</h2>
+    <button
+      onClick={() => window.location.href = "/allreviews"}
+      className="text-blue-900 font-bold text-sm sm:text-base flex items-center border border-blue-900 rounded-lg px-4 py-2 hover:bg-blue-100 transition"
+    >
+      View All
+    </button>
+  </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {[1, 2].map((_, index) => (
+    <div
+      key={index}
+      className="border rounded-[23px] h-[250.26px] p-6 shadow-sm flex flex-col space-y-4 cursor-pointer hover:shadow-md transition"
+      onClick={() => console.log(`Card ${index + 1} clicked`)} // Replace with actual navigation logic
+    >
+      <div className="flex items-center space-x-2">
+        <p className="text-yellow-500">★★★★★</p>
+      </div>
+      <p className="text-gray-700">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
+      </p>
+      <p className="text-gray-500 font-semibold">
+        - James Franco, Panadura
+      </p>
+    </div>
+  ))}
+</div>
+</div>
 
         {/* Related Products */}
         <div className="mt-16">
