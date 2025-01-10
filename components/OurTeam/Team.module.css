@@ -1,0 +1,54 @@
+.teamSection {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #000;
+  }
+  
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .role {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  .social{
+    width: 30.47px;
+    height:29.87px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .socialLinks a {
+    margin: 0 10px;
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .socialLinks a:hover {
+    color: #007bff;
+  }
+  
