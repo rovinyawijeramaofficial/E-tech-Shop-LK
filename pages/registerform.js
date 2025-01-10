@@ -6,7 +6,7 @@ const RegisterForm = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    router.push("/shopping"); // Navigate to shopping page after registration
+    router.push("/login"); // Navigate to shopping page after registration
   };
 
   const navigateToLogin = () => {
