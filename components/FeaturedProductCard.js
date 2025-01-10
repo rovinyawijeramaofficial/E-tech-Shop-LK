@@ -5,7 +5,7 @@ export default function FeaturedProductCard() {
   const jobs = [
     {
       id: 1,
-      logo: "/images/Rectangle 30.png", // Make sure this path is correct
+      logo: "/images/Rectangle 30.png",
       date: "08 Jan 2024",
       title: "iPhone 14 Pro Max - 256GB",
       company: "Apple",
@@ -25,7 +25,6 @@ export default function FeaturedProductCard() {
           key={job.id}
           className="bg-white p-8 rounded-lg shadow-md flex-shrink-0 w-80 relative"
         >
-          {/* Logo (Image of the Product) */}
           {job.logo && (
             <div className="flex justify-center">
               <Image
@@ -34,12 +33,11 @@ export default function FeaturedProductCard() {
                 width={200}
                 height={200}
                 className="rounded-lg"
-                style={{ objectFit: "cover" }} // Replace objectFit with style if needed
+                style={{ objectFit: "cover" }}
               />
             </div>
           )}
 
-          {/* Title and Rating */}
           <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2 text-center">
             {job.title}
           </h3>
@@ -49,20 +47,17 @@ export default function FeaturedProductCard() {
             ))}
           </div>
 
-          {/* Price */}
           <div className="text-center mb-4">
             <p className="text-red-500 text-2xl font-bold">{job.price}</p>
             <p className="text-gray-400 line-through">{job.originalPrice}</p>
           </div>
 
-          {/* Details */}
           <p className="text-gray-800 text-center mb-6 font-sans">
             {job.description}
           </p>
 
-          {/* Button with Navigation */}
           <div className="flex justify-center">
-            <Link href={`/singleproduct/${job.id}`} passHref>
+            <Link href={`http://localhost:3001/singleproduct/${job.id}`} passHref>
               <button className="bg-[#001571] text-white py-2 px-6 rounded-md font-semibold w-full font-sans text-center">
                 View Details
               </button>
