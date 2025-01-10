@@ -21,18 +21,16 @@ const Header = () => {
   const isHomePage = router.pathname === "/";
 
   return (
-    <header
-    className={`${poppins.className} fixed top-5 left-0 w-full ${isHomePage ? "bg-white/5" : "bg-white/20"} backdrop-blur-lg z-50 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}
-  >  
+    <header className={`${poppins.className} fixed top-5 left-1/2 transform -translate-x-1/2 w-[1840px] h-[217px] ${isHomePage ? "bg-white/5" : "bg-white/20"} backdrop-blur-lg z-50 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}> 
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl lg:text-4xl font-bold text-[#000000]">
+        <Link href="/" className="text-2xl lg:text-4xl mt-5 font-bold text-[#000000]">
           Shop/<span className="text-[#000000]">lk</span>
         </Link>
 
         {/* Search Bar (Visible on Desktop Only) */}
         <div
-          className={`hidden lg:flex relative items-center bg-transparent rounded-full overflow-hidden shadow-md ${isHomePage ? "border-transparent" : "border border-black"}`}
+          className={`hidden lg:flex mt-5 relative items-center bg-transparent rounded-full overflow-hidden shadow-md ${isHomePage ? "border-transparent" : "border border-black"}`}
           style={{ width: "40%", height: "50px" }}
         >
           <input
@@ -50,7 +48,7 @@ const Header = () => {
         </div>
 
         {/* Icons */}
-        <div className="flex items-center space-x-4 lg:space-x-8 text-white">
+        <div className="flex items-center space-x-4  mt-5 lg:space-x-8 text-white">
           {/* Heart Icon */}
           <img
             src="/images/Heart.png"
@@ -87,11 +85,11 @@ const Header = () => {
 
       </div>
 
-      {/* Horizontal Line (Desktop Only) */}
-      <div className="hidden lg:block mt-4 w-full border-t border-black/20"></div>
+{/* Horizontal Line (Desktop Only) */}
+<div className="hidden lg:block mt-10 w-[1840px] h-[84px] top-[133px] mx-auto border-t border-[#00000080] transform -translate-x-8"></div>
 
      {/* Bottom Section (Desktop Only) */}
-    <div className="hidden lg:flex justify-between items-center mt-4 text-sm">
+    <div className="hidden lg:flex justify-between items-center -mt-16 text-sm">
       {/* All Categories Button */}
       <button
         onClick={toggleMenu}
