@@ -1,11 +1,31 @@
 import React from "react";
+import { Poppins } from "next/font/google";
 
-const Footer = () => {
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const Footer = ({ isHomePage = false }) => {
   return (
-    <footer className="bg-gradient-to-r from-[#f5f0e8] to-[#eae1d7] text-[#5a3d2b] py-20">
+    <footer
+    className={`${poppins.className} w-full max-w-[1840px] h-[300px] backdrop-blur-lg z-30 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}
+    style={{
+      height: "300px",
+      borderRadius: "20px",
+      border: "0.5px solid rgba(0, 0, 0, 0.5)",
+      backdropFilter: "blur(20px)",
+      margin: "0 auto",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      opacity: "0.9",
+      position: "relative"
+    }}
+  >
       <div className="container mx-auto px-12 md:px-20">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-8 border border-[#5a3d2b] rounded-lg p-16">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-8 p-16">
           {/* Logo and Copyright */}
           <div className="space-y-4">
             <h2 className="text-lg font-bold">Shop/lk</h2>
@@ -27,8 +47,9 @@ const Footer = () => {
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#5a3d2b] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
 
+          {/* Links */}
           <div className="grid grid-cols-2 gap-8">
             <ul className="space-y-2">
               <li><a href="#" className="hover:underline text-sm font-bold">Cart</a></li>
@@ -39,7 +60,7 @@ const Footer = () => {
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#5a3d2b] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
 
           {/* Contact Info */}
           <div className="space-y-4">
