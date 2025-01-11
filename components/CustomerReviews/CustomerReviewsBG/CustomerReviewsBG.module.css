@@ -1,0 +1,12 @@
+.backgroundContainer {
+    background-image: url('/images/Group 56.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 200vh; /* Ensure it spans the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
