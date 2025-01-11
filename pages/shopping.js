@@ -118,7 +118,7 @@ export default function Shopping() {
                     padding: "35px 20px",
                   }}
                 >
-                  <h4 className="font-semibold mb-4">Price Range</h4>
+                  <h4 className="font-semibold mb-4 left-[355px]">Price Range</h4>
                   <div className="relative space-y-2">
                     <div className="flex items-center justify-between">
                       <input
