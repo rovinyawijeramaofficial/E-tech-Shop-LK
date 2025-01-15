@@ -69,7 +69,6 @@ const DisplayBanner = () => {
               alt="Vector Design Left"
               width={30}
               height={176}
-              objectFit="contain"
             />
           </div>
 
@@ -125,7 +124,6 @@ const DisplayBanner = () => {
             alt="Vector Design Right"
             width={30}
             height={176}
-            objectFit="contain"
           />
         </div>
       </div>
