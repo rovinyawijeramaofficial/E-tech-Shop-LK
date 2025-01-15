@@ -3,30 +3,23 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SmartDevicesCard from "./SmartDevicesCard";
-import Link from "next/link";
+import SmartDevices from "./SmartDevices";
 
-const jobsData = Array.from({ length: 20 }, (_, i) => ({
-  id: i + 1,
-  companyLogo: "/images/aerfin-logo.png",
-}));
+// Updated devicesData with the given laptop image
+const devicesData = [
+  { id: 1, title: "Laptop", logo: "/images/laptop-card.png" }, // Use the provided image for the laptop
+  { id: 2, title: "Smartphones", logo: "/images/Smartphones.png" },
+  { id: 3, title: "Tablet", logo: "/images/tablet.png" },
+  { id: 4, title: "Accessories", logo: "/images/accessories.png" },
+];
 
-export default function FeaturedProduct() {
+export default function SmartDevicesSlider() {
   return (
-    <div className="p-4 sm:p-6 md:p-10 bg-gray-100 -mt-20">
+    <div className="p-6 bg-gray-100">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+        Featured Smart Devices
+      </h2>
 
-      {/* Header Section */}
-      <div className="pt-10 flex justify-between items-center mb-6">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-black-900">
-        </h2>
-        <Link
-          href="/jobSearch"
-          className="text-blue-900 font-bold text-sm sm:text-base flex items-center"
-        >
-        </Link>
-      </div>
-
-      {/* Swiper Section */}
       <div className="relative">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -38,23 +31,16 @@ export default function FeaturedProduct() {
             el: ".custom-pagination",
             clickable: true,
           }}
-          spaceBetween={1}
+          spaceBetween={16}
           slidesPerView={1}
           breakpoints={{
             640: { slidesPerView: 2, spaceBetween: 16 },
             1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
         >
-          {jobsData.map((job, index) => (
-            <SwiperSlide
-              key={job.id}
-              className={index === 0 ? "ml-4" : ""} // Add margin to the first card
-            >
-              <Link href={`/job/${job.id}`}>
-                <div>
-                  <SmartDevicesCard job={job} />
-                </div>
-              </Link>
+          {devicesData.map((device) => (
+            <SwiperSlide key={device.id}>
+              <SmartDevices device={device} />
             </SwiperSlide>
           ))}
         </Swiper>
