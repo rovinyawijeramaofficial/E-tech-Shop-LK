@@ -9,7 +9,7 @@ import DisplayBanner from "@/components/DisplayBanner";
 import DiscountBanner from "@/components/DiscountBanner";
 import SmartDevices from "@/components/SmartDevices";
 
-export default function Home() {
+export default function HomePage() {
   return (
     
     <CustomerReviewsBG>
