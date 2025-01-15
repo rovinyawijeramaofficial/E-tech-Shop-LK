@@ -1,68 +1,27 @@
 import Image from "next/image";
-import { useState } from "react";
-import Link from "next/link";
 
-export default function SmartDevicesCard() {
-  const [showApplicationForm, setShowApplicationForm] = useState(false);
-
-  const jobs = [
-    {
-      id: 1,
-      logo: "/images/laptop.png",
-
-      id: 2,
-      logo: "/images/Smartphones.png",
-    },
-  ];
-
- return (
-    <>
-      <div className="p-3  flex space-x-4 overflow-x-auto scrollbar-hide">
-        {jobs.map((job) => (
-          <div
-            key={job.id}
-            className=" p-8  flex-shrink-0 w-80 relative -mt-10"
-          >
-            {/* Logo (Image of the Product) */}
-            <div className="flex justify-center">
-              <Image
-                src={job.logo}
-                alt={`${job.company} logo`}
-                width={200}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-
-            {/* Title and Rating */}
-            <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2 text-center">
-              {job.title}
-            </h3>
-            <div className="flex justify-center mb-4 text-yellow-500">
-              {Array.from({ length: job.rating }).map((_, index) => (
-                <span key={index}>&#9733;</span>
-              ))}
-            </div>
-
-            {/* Price */}
-            <div className="text-center mb-4">
-              <p className="text-red-500 text-2xl font-bold">{job.price}</p>
-              <p className="text-gray-400 line-through">{job.originalPrice}</p>
-            </div>
-
-            {/* Details */}
-            <p className="text-gray-800 text-center mb-6 font-sans">
-              {job.description}
-            </p>
-
-            {/* Button */}
-            <div className="flex justify-center">
-            </div>
-          </div>
-        ))}
-
-   
+export default function SmartDevices({ device }) {
+  return (
+    <div className="p-4 bg-white shadow-md rounded-lg max-w-[416px]">
+      {/* Product Image */}
+      <div className="relative w-full h-[198px] overflow-hidden rounded-lg">
+        <Image
+          src={device.logo}
+          alt={`${device.title} image`}
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
-    </>
+
+      {/* Title */}
+      <h3 className="text-lg font-bold text-gray-900 mt-4 text-center">
+        {device.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-gray-600 text-center mt-2">
+        Explore the latest {device.title}.
+      </p>
+    </div>
   );
 }
