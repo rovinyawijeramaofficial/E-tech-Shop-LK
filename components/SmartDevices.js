@@ -1,60 +1,108 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import SmartDevices from "./SmartDevices";
+import SmartDevicesCard from "./SmartDevicesCard";
+import Image from "next/image";
+import Link from "next/link"; // For navigation
+import { useEffect } from "react";
 
-// Updated devicesData with the given laptop image
 const devicesData = [
-  { id: 1, title: "Laptop", logo: "/images/laptop-card.png" }, // Use the provided image for the laptop
+  { id: 1, title: "Laptop", logo: "/images/laptop.png" },
   { id: 2, title: "Smartphones", logo: "/images/Smartphones.png" },
   { id: 3, title: "Tablet", logo: "/images/tablet.png" },
   { id: 4, title: "Accessories", logo: "/images/accessories.png" },
+  { id: 5, title: "Laptop", logo: "/images/laptop.png" },
+  { id: 6, title: "Smartphones", logo: "/images/Smartphones.png" },
+  { id: 7, title: "Tablet", logo: "/images/tablet.png" },
+  { id: 8, title: "Accessories", logo: "/images/accessories.png" },
 ];
 
-export default function SmartDevicesSlider() {
-  return (
-    <div className="p-6 bg-gray-100">
-      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-        Featured Smart Devices
-      </h2>
+export default function SmartDevices() {
+  useEffect(() => {
+    const swiperInstance = document.querySelector(".swiper").swiper;
 
+    document.querySelector(".smart-prev")?.addEventListener("click", () => {
+      swiperInstance.slidePrev();
+    });
+
+    document.querySelector(".smart-next")?.addEventListener("click", () => {
+      swiperInstance.slideNext();
+    });
+  }, []);
+
+  return (
+    <div className="p-6 bg-gray-100" style={{ marginTop: "-70px" }}>
       <div className="relative">
         <Swiper
-          modules={[Navigation, Pagination]}
-          navigation={{
-            prevEl: ".custom-prev",
-            nextEl: ".custom-next",
-          }}
-          pagination={{
-            el: ".custom-pagination",
-            clickable: true,
-          }}
-          spaceBetween={16}
-          slidesPerView={1}
+          modules={[Navigation]}
+          navigation={false}
+          spaceBetween={10}
+          slidesPerView={4}
+          slidesPerGroup={1}
           breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 16 },
+            640: { slidesPerView: 3, spaceBetween: 10 },
             1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
         >
           {devicesData.map((device) => (
             <SwiperSlide key={device.id}>
-              <SmartDevices device={device} />
+              <div className="flex justify-center">
+                {/* Update the Link component to navigate to the correct dynamic route */}
+                <Link href={`/shopping`}>
+                  <SmartDevicesCard device={device} />
+                </Link>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
         {/* Custom Navigation Arrows */}
-        <button className="custom-prev absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-blue-900 hover:bg-blue-900 hover:text-white transition">
-          ❮
+        <button
+          className="smart-prev absolute shadow-md rounded-full flex items-center justify-center transition"
+        >
+          <Image src="/images/Exclude.png" alt="Left Arrow" width={24} height={24} />
         </button>
-        <button className="custom-next absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-blue-900 hover:bg-blue-900 hover:text-white transition">
-          ❯
+        <button
+          className="smart-next absolute shadow-md rounded-full flex items-center justify-center transition"
+        >
+          <Image src="/images/Include.png" alt="Right Arrow" width={24} height={24} />
         </button>
 
-        {/* Custom Pagination */}
-        <div className="custom-pagination mt-4 flex justify-center"></div>
+        <style jsx>{`
+          .smart-prev,
+          .smart-next {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+          }
+
+          .smart-prev {
+            left: -30px;
+          }
+
+          .smart-next {
+            right: -30px;
+          }
+
+          .smart-prev img,
+          .smart-next img {
+            display: block;
+          }
+
+          @media (max-width: 1024px) {
+            .smart-prev {
+              left: -40px;
+            }
+
+            .smart-next {
+              right: -40px;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );
