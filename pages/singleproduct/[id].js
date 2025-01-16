@@ -1,47 +1,61 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import Link from 'next/link';
 
 const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedStorage, setSelectedStorage] = useState("256GB");
   const [selectedColor, setSelectedColor] = useState("Space Black");
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const { id } = router.query;
 
-  const handleQuantityChange = (type) => {
-    if (type === "increment") {
-      setQuantity(quantity + 1);
-    } else if (type === "decrement" && quantity > 1) {
-      setQuantity(quantity - 1);
+  const productId = id || "1"; // Default to product with id "1" if id is missing
+
+  useEffect(() => {
+    if (productId) {
+      setLoading(false);
     }
-  };
+  }, [productId]);
 
   const relatedProducts = [
     {
-      name: "iPhone 14 Pro Max - 256GB",
-      price: "Rs. 249,999",
+      id: 1,
+      name: "Apple iPhone 14 Pro",
+      price: "Rs. 199,999",
       image: "/images/Rectangle 30.png",
-      rating: 5,
     },
     {
-      name: "iPhone 14 Pro Max - 256GB",
-      price: "Rs. 249,999",
+      id: 2,
+      name: "Samsung Galaxy S21",
+      price: "Rs. 129,999",
       image: "/images/Rectangle 30.png",
-      rating: 5,
     },
     {
-      name: "iPhone 14 Pro Max - 256GB",
-      price: "Rs. 249,999",
+      id: 3,
+      name: "Google Pixel 6",
+      price: "Rs. 109,999",
       image: "/images/Rectangle 30.png",
-      rating: 5,
+    },
+    {
+      id: 4,
+      name: "OnePlus 9 Pro",
+      price: "Rs. 119,999",
+      image: "/images/Rectangle 30.png",
     },
   ];
+
+  if (loading) {
+    return <div className="text-center mt-20">Loading...</div>;
+  }
 
   return (
     <>
       <Header />
-      <div className="container mx-auto mt-60 py-8 px-4">
+      <div className="container mx-auto mt-80 py-8 px-4">
         {/* Product Section */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Product Images */}
@@ -83,24 +97,21 @@ const SingleProduct = () => {
             <div className="mb-4">
               <h4 className="font-semibold">Choose your color:</h4>
               <div className="flex space-x-4 mt-2">
-                {[
-                  "Space Black",
-                  "Silver",
-                  "Gold",
-                  "Deep Purple",
-                ].map((color) => (
-                  <button
-                    key={color}
-                    className={`border px-4 py-2 rounded-lg ${
-                      selectedColor === color
-                        ? "bg-black text-white"
-                        : "bg-white"
-                    }`}
-                    onClick={() => setSelectedColor(color)}
-                  >
-                    {color}
-                  </button>
-                ))}
+                {["Space Black", "Silver", "Gold", "Deep Purple"].map(
+                  (color) => (
+                    <button
+                      key={color}
+                      className={`border px-4 py-2 rounded-lg ${
+                        selectedColor === color
+                          ? "bg-black text-white"
+                          : "bg-white"
+                      }`}
+                      onClick={() => setSelectedColor(color)}
+                    >
+                      {color}
+                    </button>
+                  )
+                )}
               </div>
             </div>
             <div className="mb-4">
@@ -150,45 +161,13 @@ const SingleProduct = () => {
           </div>
         </div>
 
-   {/* Reviews Section */}
-<div className="mt-16">
-  <div className="flex justify-between items-center mb-6">
-    <h2 className="text-2xl font-bold">Reviews</h2>
-    <button
-      onClick={() => window.location.href = "/allreviews"}
-      className="text-blue-900 font-bold text-sm sm:text-base flex items-center border border-blue-900 rounded-lg px-4 py-2 hover:bg-blue-100 transition"
-    >
-      View All
-    </button>
-  </div>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  {[1, 2].map((_, index) => (
-    <div
-      key={index}
-      className="border rounded-[23px] h-[250.26px] p-6 shadow-sm flex flex-col space-y-4 cursor-pointer hover:shadow-md transition"
-      onClick={() => console.log(`Card ${index + 1} clicked`)} // Replace with actual navigation logic
-    >
-      <div className="flex items-center space-x-2">
-        <p className="text-yellow-500">★★★★★</p>
-      </div>
-      <p className="text-gray-700">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.
-      </p>
-      <p className="text-gray-500 font-semibold">
-        - James Franco, Panadura
-      </p>
-    </div>
-  ))}
-</div>
-</div>
-
         {/* Related Products */}
         <div className="mt-16">
           <h2 className="text-2xl font-bold mb-4">Related Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relatedProducts.map((product, index) => (
+            {relatedProducts.map((product) => (
               <div
-                key={index}
+                key={product.id}
                 className="border rounded-lg p-4 flex flex-col items-center text-center"
               >
                 <Image
