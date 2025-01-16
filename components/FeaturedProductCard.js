@@ -1,70 +1,85 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function FeaturedProductCard() {
-  const jobs = [
-    {
-      id: 1,
-      logo: "/images/Rectangle 30.png",
-      date: "08 Jan 2024",
-      title: "iPhone 14 Pro Max - 256GB",
-      company: "Apple",
-      location: "Available Now",
-      description:
-        "256GB storage capacity, powered by the A16 Bionic chip, and an advanced camera system.",
-      price: "Rs.249,999",
-      originalPrice: "Rs.399,999",
-      rating: 5,
-    },
-  ];
+export default function FeaturedProductCard({ product = {} }) {
+  const { id, logo, title, price, originalPrice, rating = 0 } = product;
+  const [userRating, setUserRating] = useState(0);
+
+  const handleRatingClick = (ratingValue) => {
+    setUserRating(ratingValue);
+  };
 
   return (
-    <div className="p-3 flex space-x-4 overflow-x-auto scrollbar-hide">
-      {jobs.map((job) => (
-        <div
-          key={job.id}
-          className="bg-white p-8 rounded-lg shadow-md flex-shrink-0 w-80 relative"
-        >
-          {job.logo && (
-            <div className="flex justify-center">
-              <Image
-                src={job.logo}
-                alt={`${job.company} logo`}
-                width={200}
-                height={200}
-                className="rounded-lg"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          )}
-
-          <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2 text-center">
-            {job.title}
-          </h3>
-          <div className="flex justify-center mb-4 text-yellow-500">
-            {Array.from({ length: job.rating }).map((_, index) => (
-              <span key={index}>&#9733;</span>
-            ))}
-          </div>
-
-          <div className="text-center mb-4">
-            <p className="text-red-500 text-2xl font-bold">{job.price}</p>
-            <p className="text-gray-400 line-through">{job.originalPrice}</p>
-          </div>
-
-          <p className="text-gray-800 text-center mb-6 font-sans">
-            {job.description}
-          </p>
-
-          <div className="flex justify-center">
-            <Link href={`http://localhost:3001/singleproduct/${job.id}`} passHref>
-              <button className="bg-[#001571] text-white py-2 px-6 rounded-md font-semibold w-full font-sans text-center">
-                View Details
-              </button>
-            </Link>
-          </div>
+    <div
+      className="bg-white rounded-[15px] shadow-lg flex-shrink-0 w-[416px] h-[617px] p-6 relative"
+      style={{ boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.1)" }}
+    >
+      {/* Product Image */}
+      {logo ? (
+        <div className="flex justify-center">
+          <Image
+            src={logo}
+            alt={`${title} image`}
+            width={416}
+            height={416}
+            className="rounded-t-[15px] object-cover"
+            style={{ borderRadius: "15px 15px 0 0", opacity: 1 }}
+          />
         </div>
-      ))}
+      ) : (
+        <div className="w-full h-[416px] bg-gray-200 rounded-t-[15px] flex items-center justify-center">
+          <span>No Image</span>
+        </div>
+      )}
+
+      {/* Left Side Content: Title, Rating, Price, and Button */}
+      <div className="flex flex-col justify-start space-y-1 mt-2">
+        {/* Product Title */}
+        <h3 className="text-black font-semibold text-lg mt-0">{title || "No Title"}</h3>
+
+        {/* Product Rating */}
+        <div className="flex mt-2">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Image
+              key={index}
+              src="/images/star filled.png"
+              alt="Star"
+              width={20}
+              height={20}
+              className={`cursor-pointer ${index < (userRating || rating) ? "opacity-100" : "opacity-50"}`}
+              onClick={() => handleRatingClick(index + 1)}
+            />
+          ))}
+        </div>
+
+        {/* Product Price */}
+        <div className="flex items-center space-x-2 mt-0">
+          <p className="text-black font-bold text-xl mt-3">{price || "No Price"}</p>
+          <p className="text-gray-400 line-through text-lg mt-3">{originalPrice || "No Original Price"}</p>
+        </div>
+
+        {/* Button Handling */}
+        {id === 2 ? (
+          <Link href={`/singleproduct/${id}`} passHref>
+            <button className="py-3 px-6 rounded-lg h-[45.9px] w-[372.35px] mt-0 flex items-center justify-center space-x-2 bg-white border border-black text-black">
+              <span>View Details</span>
+            </button>
+          </Link>
+        ) : (
+          <Link href="/cart" passHref>
+            <button className="py-3 px-6 rounded-lg h-[45.9px] w-[372.35px] mt-0 flex items-center justify-center space-x-2 bg-black text-white">
+              <Image
+                src="/images/Shopping CartWhite.png"
+                alt="Cart"
+                width={27}
+                height={27}
+              />
+              <span>Add to Cart</span>
+            </button>
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
