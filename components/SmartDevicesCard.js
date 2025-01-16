@@ -1,27 +1,45 @@
 import Image from "next/image";
 
-export default function SmartDevices({ device }) {
+export default function SmartDevicesCard({ device }) {
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg max-w-[416px]">
+    <div
+      className="shadow-md overflow-hidden relative"
+      style={{
+        width: "416px",
+        height: "198px",
+        borderRadius: "14px",
+        marginLeft: "9px" // Adjusted to move Laptop left
+      }}
+    >
       {/* Product Image */}
-      <div className="relative w-full h-[198px] overflow-hidden rounded-lg">
+      <div className="w-full h-full relative">
         <Image
           src={device.logo}
           alt={`${device.title} image`}
           layout="fill"
           objectFit="cover"
+          className="rounded-lg"
         />
+        {/* Title Overlay */}
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          
+        >
+          <h3
+            className="text-white font-bold"
+            style={{
+              fontSize: "29.12px",
+              fontFamily: "Poppins",
+              fontWeight: 600,
+              lineHeight: "33.99px",
+              textAlign: "center",
+              textShadow: "0 4px 24px rgba(0, 0, 0, 1)"
+            }}
+          >
+            {device.title}
+          </h3>
+        </div>
       </div>
-
-      {/* Title */}
-      <h3 className="text-lg font-bold text-gray-900 mt-4 text-center">
-        {device.title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-sm text-gray-600 text-center mt-2">
-        Explore the latest {device.title}.
-      </p>
     </div>
   );
 }
