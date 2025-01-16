@@ -142,8 +142,8 @@ const DisplayBanner = () => {
               onClick={() => handleDotClick(index)}
               className={`cursor-pointer rounded-full`}
               style={{
-                width: "16px", // Matches the ellipse dimensions
-                height: "16px",
+                width: "15.77px", // Matches the ellipse dimensions
+                height: "15.77px",
                 backgroundColor:
                   index === activeDot
                     ? "#FFFFFF"
