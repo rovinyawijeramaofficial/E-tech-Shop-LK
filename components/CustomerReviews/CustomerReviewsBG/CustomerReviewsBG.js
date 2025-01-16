@@ -1,4 +1,3 @@
-// CustomerReviewsBG.js
 import React from "react";
 import styles from "./CustomerReviewsBG.module.css";
 
