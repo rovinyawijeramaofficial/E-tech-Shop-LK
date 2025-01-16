@@ -47,7 +47,6 @@ export default function Shopping() {
           {/* Breadcrumb and Title */}
           <button
             className="mb-6 bg-black text-white px-8 py-16 rounded-[25px] text-left w-full"
-            onClick={navigateToSearchShopping}
           >
             <h2 className="text-lg text-gray-300">Home / All Products</h2>
             <h1 className="text-4xl font-bold">All Products</h1>
