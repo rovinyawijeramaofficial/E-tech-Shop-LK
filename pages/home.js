@@ -22,6 +22,7 @@ export default function HomePage() {
       <OnSaleProducts />
       <CustomerReviewsCard />
       <Footer />
+      
     </CustomerReviewsBG>
   );
 }
