@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import { Poppins } from "next/font/google";
 import { useRouter } from "next/router";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,8 +10,8 @@ const poppins = Poppins({
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartHovered, setIsCartHovered] = useState(false); // State for cart hover
-  const [isUserHovered, setIsUserHovered] = useState(false); // State for user hover
+  const [isCartHovered, setIsCartHovered] = useState(false);
+  const [isUserHovered, setIsUserHovered] = useState(false);
   const router = useRouter();
 
   const toggleMenu = () => {
@@ -21,10 +20,16 @@ const Header = () => {
 
   const isHomePage = router.pathname === "/home";
 
+  const handleSearch = () => {
+    router.push("/searchshopping");
+  };
+
   return (
     <header
       className={`${poppins.className} fixed left-[40px] w-[calc(100vw-97px)] w-[1840px] h-[217px] top-[32px] ${
-        isHomePage ? "bg-[#ffffff]/20 border border-transparent" : "bg-white/40 border border-[#00000080]"
+        isHomePage
+          ? "bg-[#ffffff]/20 border border-transparent"
+          : "bg-white/40 border border-[#00000080]"
       } backdrop-blur-lg z-50 px-4 lg:px-8 py-4 rounded-[25px]`}>
       <div className="flex justify-between items-center">
         <Link
@@ -37,7 +42,9 @@ const Header = () => {
 
         <div
           className={`lg:flex mt-5 justify-center ${
-            isHomePage ? "border border-[rgba(255,255,255,0.58)]" : "border border-black"
+            isHomePage
+              ? "border border-[rgba(255,255,255,0.58)]"
+              : "border border-black"
           }`}
           style={{
             width: "829px",
@@ -49,7 +56,6 @@ const Header = () => {
             alignItems: "center",
             justifyContent: "space-between",
           }}>
-          {/* Search Input Field */}
           <input
             type="text"
             placeholder='Try searching "Smart TV"'
@@ -69,16 +75,16 @@ const Header = () => {
             }}
           />
 
-          {/* Search Button Section */}
           <button
+            onClick={handleSearch}
             className="flex items-center justify-center"
             style={{
               width: "163px",
               height: "57px",
               borderTopRightRadius: "42px",
               borderBottomRightRadius: "42px",
-              backgroundColor: isHomePage ? "#FFFFFF" : "#000000", // White on home.js, black otherwise
-              color: isHomePage ? "#000000" : "#FFFFFF", // Black text for contrast when white, white text for black background
+              backgroundColor: isHomePage ? "#FFFFFF" : "#000000",
+              color: isHomePage ? "#000000" : "#FFFFFF",
               fontFamily: "Poppins",
               fontWeight: 500,
               fontSize: "18px",
@@ -89,7 +95,6 @@ const Header = () => {
               border: "none",
               cursor: "pointer",
             }}>
-            {/* Search Icon */}
             <img
               src={isHomePage ? "/images/Search.png" : "/images/SearchWhite.png"}
               alt="Search Icon"
@@ -99,7 +104,6 @@ const Header = () => {
                 marginRight: "8px",
               }}
             />
-            {/* Search Text */}
             <span
               style={{
                 fontFamily: "Poppins",
@@ -120,8 +124,6 @@ const Header = () => {
             style={{
               width: "36.47px",
               height: "36.47px",
-              top: "81px",
-              left: "1705px",
               cursor: "pointer",
             }}
           />
@@ -136,12 +138,9 @@ const Header = () => {
                 style={{
                   width: "36px",
                   height: "36px",
-                  top: "81px",
-                  left: "1753px",
                   cursor: "pointer",
                 }}
               />
-              {/* Cart Tooltip */}
               {isCartHovered && (
                 <span
                   style={{
@@ -162,7 +161,6 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* User Icon with Register Tooltip */}
           <Link href="/register">
             <div
               className="relative"
@@ -174,12 +172,9 @@ const Header = () => {
                 style={{
                   width: "36px",
                   height: "36px",
-                  top: "81px",
-                  left: "1801px",
                   cursor: "pointer",
                 }}
               />
-              {/* Register Tooltip */}
               {isUserHovered && (
                 <span
                   style={{
@@ -202,7 +197,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Separated Box - Centered and Full Width Fix */}
       <div
         className={`fixed inset-x-0 top-[131px] z-50 flex items-center justify-between 
                 px-6 lg:px-10 h-[84px] border-t 
@@ -210,9 +204,10 @@ const Header = () => {
                 rounded-b-[25px] bg-transparent`}
         style={{
           boxSizing: "border-box",
-          borderTop: isHomePage ? "1px solid rgba(255,255,255,0.58)" : "1px solid black",
+          borderTop: isHomePage
+            ? "1px solid rgba(255,255,255,0.58)"
+            : "1px solid black",
         }}>
-        {/* Menu Button - Moved to Left Side */}
         <div className="flex items-center gap-3 ml-[-33px]">
           <button
             onClick={toggleMenu}
@@ -228,7 +223,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Call Us Section */}
         <div
           className={`flex items-center gap-2 px-6 mr-[-33px]
                       ${isHomePage ? "text-white" : "text-black"} 
@@ -244,7 +238,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Dropdown Menu */}
       {isMenuOpen && (
         <div
           className={`absolute top-[calc(100%+10px)] left-0 bg-black 
