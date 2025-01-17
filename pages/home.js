@@ -2,7 +2,7 @@ import React from "react";
 import OnSaleProducts from "@/components/OnSaleProducts";
 import CustomerReviewsCard from "@/components/CustomerReviews/CustomerReviewsCard/CustomerReviewsCard";
 import FeaturedProduct from "@/components/FeaturedProduct";
-import Footer from "@/components/Footer";
+import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import Header from "@/components/Header";
 import CustomerReviewsBG from "@/components/CustomerReviews/CustomerReviewsBG/CustomerReviewsBG";
 import DisplayBanner from "@/components/DisplayBanner";
@@ -11,7 +11,6 @@ import SmartDevices from "@/components/SmartDevices";
 
 export default function HomePage() {
   return (
-    
     <CustomerReviewsBG>
       <Header />
       <DisplayBanner />
@@ -21,8 +20,8 @@ export default function HomePage() {
       <DiscountBanner />
       <OnSaleProducts />
       <CustomerReviewsCard />
-      <Footer />
-      
+      {/* Pass isHomePage as true for Footer */}
+      <Footer isHomePage={true} />
     </CustomerReviewsBG>
   );
 }
