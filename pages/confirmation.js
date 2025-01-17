@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import Header from "@/components/Header";
 
@@ -86,7 +87,9 @@ export default function Confirmation() {
 
         <div className="flex justify-between items-center">
           <button className="bg-black text-white px-6 py-2 rounded">Download Invoice (PDF)</button>
+          <Link href="/cart" className="hover:underline text-sm font-bold">
           <button className="bg-black text-white px-6 py-2 rounded">My Account</button>
+          </Link>
         </div>
       </div>
       <Footer />
