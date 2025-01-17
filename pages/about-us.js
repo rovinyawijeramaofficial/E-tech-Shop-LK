@@ -12,10 +12,12 @@ const AboutUs = () => {
     <div className="container mx-auto mt-60 py-8 px-4">
     <div className="about-us-page">
       {/* Hero Section */}
-      <div className="hero-section">
-        <h1>About Us</h1>
-        <p>Home / About Us</p>
-      </div>
+          <div
+            className="mb-6 bg-black text-white px-8 py-16 rounded-[25px] text-left w-full"
+          >
+            <h2 className="text-lg text-gray-300">Home / About Us</h2>
+            <h1 className="text-4xl font-bold">About Us</h1>
+          </div>
 
       {/* About Section */}
       <div className="about-section">
