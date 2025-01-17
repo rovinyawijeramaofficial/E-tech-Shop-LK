@@ -2,7 +2,7 @@ import ProductHeader from '../components/ProductHeader';
 import ReviewCard from '../components/ReviewCard';
 import Pagination from '../components/Pagination';
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import { useRouter } from "next/router";
 
 const AllReviews = () => {
