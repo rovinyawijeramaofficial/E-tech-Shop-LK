@@ -32,30 +32,74 @@ const ContactUs = () => {
           </form>
         </div>
 
-        {/* Contact Channels */}
-        <div className="contact-details">
-          <h3>Contact Channels</h3>
-          <ul>
-            <li>
-              <span>📧</span> info@shop.lk
-            </li>
-            <li>
-              <span>📞</span> 0112 69 69 420
-            </li>
-            <li>
-              <span>📍</span> Dedigama, Kegalle
-            </li>
-          </ul>
+{/* Contact Channels */}
+<div className="contact-details">
+  <h3 style={{ color: "#000000" }}>Contact Channels</h3>
+  <ul>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/Envelope.png"
+        alt="Email Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      info@shop.lk
+    </li>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/Phone.png"
+        alt="Phone Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      0112 69 69 420
+    </li>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/Location.png"
+        alt="Location Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      Dedigama, Kegalle
+    </li>
+  </ul>
 
-          {/* Social Media */}
-          <h3>Social Media</h3>
-          <ul className="social-media">
-            <li>📘 Facebook</li>
-            <li>🐦 Twitter</li>
-            <li>📸 Instagram</li>
-            <li>💼 LinkedIn</li>
-          </ul>
-        </div>
+  {/* Social Media */}
+  <h3 style={{ color: "#000000" }}>Social Media</h3>
+  <ul className="social-media">
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/FacebookBig.png"
+        alt="Facebook Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      Facebook
+    </li>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/TwitterBig.png"
+        alt="Twitter Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      Twitter
+    </li>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/InstagramBig.png"
+        alt="Instagram Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      Instagram
+    </li>
+    <li style={{ color: "#000000" }}>
+      <img
+        src="/images/LinkedinBig.png"
+        alt="LinkedIn Icon"
+        style={{ width: "20px", height: "20px", marginRight: "8px" }}
+      />
+      LinkedIn
+    </li>
+  </ul>
+</div>
+
       </div>
 
       {/* Location */}
