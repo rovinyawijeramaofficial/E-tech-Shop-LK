@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import CustomerReviewsBG from "../CustomerReviewsBG/CustomerReviewsBG";
 import { Poppins } from "next/font/google";
 
@@ -10,7 +11,7 @@ const poppins = Poppins({
 const Footer = ({ isHomePage = false }) => {
   const footerContent = (
     <footer
-      className={`${poppins.className}  w-[1840px]  h-[537px] backdrop-blur-lg z-30 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}
+      className={`${poppins.className} backdrop-blur-lg z-30 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}
       style={{
         height: "337px",
         borderRadius: "20px",
@@ -37,31 +38,31 @@ const Footer = ({ isHomePage = false }) => {
 
           {/* Links */}
           <div className="grid grid-cols-2 gap-8">
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/home"className="hover:underline text-sm font-bold">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/about-us"className="hover:underline text-sm font-bold">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/contact-us" className="hover:underline text-sm font-bold">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/privacypolicy" className="hover:underline text-sm font-bold">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/privacypolicy" className="hover:underline text-sm font-bold">
                   Terms And Conditions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -71,26 +72,26 @@ const Footer = ({ isHomePage = false }) => {
 
           {/* Links */}
           <div className="grid grid-cols-2 gap-8">
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/cart" className="hover:underline text-sm font-bold">
                   Cart
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/checkout" className="hover:underline text-sm font-bold">
                   My Account
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/confirmation" className="hover:underline text-sm font-bold">
                   Order History
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline text-sm font-bold">
+                <Link href="/confirmation" className="hover:underline text-sm font-bold">
                   Order Tracking
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -99,12 +100,12 @@ const Footer = ({ isHomePage = false }) => {
           <div className="hidden md:block w-px bg-[#000000] h-full"></div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-bold text-sm">Call Us:</h3>
-              <p className="text-sm font-bold">0112 69 69 420</p>
-              <p className="text-sm font-bold">0112 69 69 420</p>
-              <p className="text-sm font-bold">0112 69 69 420</p>
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <h3 className="font-bold text-sm ">Call Us:</h3>
+              <p className="text-sm font-bold ">0112 69 69 420</p>
+              <p className="text-sm font-bold ">0112 69 69 420</p>
+              <p className="text-sm font-bold ">0112 69 69 420</p>
             </div>
             <div>
               <h3 className="font-bold text-sm">Email:</h3>
