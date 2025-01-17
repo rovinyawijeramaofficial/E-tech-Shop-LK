@@ -1,7 +1,7 @@
 // Import required libraries
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Footer from "@/components/Footer";
+import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import Header from "@/components/Header";
 
 const Checkout = () => {
