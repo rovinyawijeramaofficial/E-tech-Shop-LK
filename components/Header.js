@@ -253,9 +253,13 @@ const Header = () => {
             <Link href="/about-us" className="hover:text-white transition duration-200">
               About Us
             </Link>
-            <Link href="/contact" className="hover:text-white transition duration-200">
+            <Link href="/bloghome" className="hover:text-white transition duration-200">
+              Blogs
+            </Link>
+            <Link href="/contact-us" className="hover:text-white transition duration-200">
               Contact Us
             </Link>
+            
           </nav>
         </div>
       )}
