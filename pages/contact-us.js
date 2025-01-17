@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
+import Newsletter from "@/components/Newsletter";
 
 const ContactUs = () => {
   return (
@@ -72,28 +73,8 @@ const ContactUs = () => {
         </div>
       </div>
 
-      {/* Newsletter Subscription */}
-      <div className="newsletter">
-        <h2>Subscribe to Our Newsletter</h2>
-        <form>
-          <input
-            type="email"
-            placeholder="Enter Your Email Address"
-            required
-          />
-          <button type="submit">Send</button>
-        </form>
-      </div>
+      <Newsletter/>
 
-      {/* Footer Mascot */}
-      <div className="footer-mascot">
-        <Image
-          src="/images/image 6.png"
-          alt="Mascot"
-          width={100}
-          height={100}
-        />
-      </div>
     </div>
     </div>
     <Footer />
