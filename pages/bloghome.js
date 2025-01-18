@@ -3,8 +3,10 @@ import Footer from '@/components/CustomerReviews/CustomerReviewsBG/Footer';
 import Header from '@/components/Header';
 import BlogHomePagination from "@/components/BlogHomePagination";
 import Newsletter from "@/components/Newsletter";
+import { useRouter } from 'next/router';
 
 const BlogHome = () => {
+  const router = useRouter();
   const posts = [
     {
       title: 'Windows 11',
@@ -52,6 +54,7 @@ const BlogHome = () => {
       link: '#',
     },
   ];
+    
 
   const latestPosts = [
     {
@@ -109,90 +112,109 @@ const BlogHome = () => {
           ))}
         </div>
 
-        {/* Search Bar */}
-        <div className="mb-8 flex justify-center">
-          <div className="flex border rounded-lg overflow-hidden w-full max-w-8xl">
-            <input
-              type="text"
-              placeholder="Try searching 'Smart TV'"
-              className="p-6 w-full focus:outline-none"
-            />
-            <button className="bg-black text-white p-8 flex items-center">
-              <span className="mr-2">
-              <img
-              src={"/images/SearchWhite.png"}
-              alt="Search Icon"
-              style={{
-                width: "29px",
-                height: "29px",
-                marginRight: "8px",
-              }}
-            />
-              </span>
-              Search
-            </button>
-          </div>
-        </div>
+{/* Search Bar Section */}
+<div className="mb-8 flex justify-center">
+  {/* Outer Container */}
+  <div className="border border-gray-300 rounded-lg w-full max-w-9xl p-6 bg-white">
+    {/* Title and Search Bar in a Row */}
+    <div className="flex justify-between items-center">
+      {/* Title */}
+      <div className="text-lg font-semibold text-black">
+        Browse Through Our Blog
+      </div>
+      {/* Search Bar */}
+      <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm w-full max-w-6xl">
+        {/* Input Field */}
+        <input
+          type="text"
+          placeholder="Try searching 'Smart TV'"
+          className="p-4 w-full text-gray-500 placeholder-gray-500 focus:outline-none"
+          id="searchInput"
+        />
+        {/* Search Button */}
+        <button
+          className="bg-black text-white px-6 py-4 flex items-center"
+          onClick={() => {
+            const searchQuery = document.getElementById('searchInput').value;
+            window.location.href = `/blogarchivesearch?query=${encodeURIComponent(searchQuery)}`;
+          }}
+        >
+          <img
+            src="/images/SearchWhite.png"
+            alt="Search Icon"
+            className="w-5 h-5 mr-2"
+          />
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* Recommended Posts Section */}
         <div className="mb-12">
-          <h2
-            className="text-2xl font-bold mb-4"
-            style={{
-              height: "77px",
-              width: "510px",
-              fontFamily: "poppins",
-              fontWeight: 600,
-              fontSize: "47.12px",
-              lineHeight: "76.18px",
-            }}
-          >
-            Recommended Posts
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-         
-            <div className="lg:col-span-2 relative bg-black rounded-[25px] overflow-hidden shadow-lg">
-              <img
-                src={recommendedPosts[0].image}
-                alt={recommendedPosts[0].title}
-                className="w-full h-56 lg:h-72 object-cover opacity-75"
-              />
-              <div className="absolute inset-0 flex flex-col justify-end p-4">
-                <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
-                  {recommendedPosts[0].category}
-                </span>
-                <h3 className="text-white text-xl font-semibold mt-2">
-                  {recommendedPosts[0].title}
-                </h3>
-                <p className="text-white text-sm mt-1">{recommendedPosts[0].description}</p>
-              </div>
-            </div>
+  <h2
+    className="text-2xl font-bold mb-4"
+    style={{
+      height: "77px",
+      width: "510px",
+      fontFamily: "poppins",
+      fontWeight: 600,
+      fontSize: "47.12px",
+      lineHeight: "76.18px",
+    }}
+  >
+    Recommended Posts
+  </h2>
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div
+      className="lg:col-span-2 relative bg-black rounded-[25px] overflow-hidden shadow-lg cursor-pointer"
+      onClick={() => router.push('/blogsingle')}
+    >
+      <img
+        src="/images/Rectangle 46.png"
+        alt="Recommended Post"
+        className="w-full h-56 lg:h-72 object-cover opacity-75"
+      />
+      <div className="absolute inset-0 flex flex-col justify-end p-4">
+        <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
+          {recommendedPosts[0].category}
+        </span>
+        <h3 className="text-white text-xl font-semibold mt-2">
+          {recommendedPosts[0].title}
+        </h3>
+        <p className="text-white text-sm mt-1">{recommendedPosts[0].description}</p>
+      </div>
+    </div>
 
-            <div className="space-y-6">
-              {recommendedPosts.slice(1).map((post, index) => (
-                <div
-                  key={index}
-                  className="relative bg-black rounded-[25px] overflow-hidden shadow-lg"
-                >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-56 object-cover opacity-75"
-                  />
-                  <div className="absolute inset-0 flex flex-col justify-end p-4">
-                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
-                      {post.category}
-                    </span>
-                    <h3 className="text-white text-xl font-semibold mt-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-white text-sm mt-1">{post.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+    <div className="space-y-6">
+      {recommendedPosts.slice(1).map((post, index) => (
+        <div
+          key={index}
+          className="relative bg-black rounded-[25px] overflow-hidden shadow-lg cursor-pointer"
+          onClick={() => router.push('/blogsingle')}
+        >
+          <img
+            src="/images/Rectangle 48.png"
+            alt={post.title}
+            className="w-full h-56 object-cover opacity-75"
+          />
+          <div className="absolute inset-0 flex flex-col justify-end p-4">
+            <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
+              {post.category}
+            </span>
+            <h3 className="text-white text-xl font-semibold mt-2">
+              {post.title}
+            </h3>
+            <p className="text-white text-sm mt-1">{post.description}</p>
           </div>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
         {/* Latest Posts Section */}
 <div className="mb-12">
