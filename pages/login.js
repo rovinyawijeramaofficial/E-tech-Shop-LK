@@ -1,7 +1,15 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    router.push('/home');
+  };
+
   return (
     <div
       style={{ display: "flex", height: "100vh", fontFamily: "Arial, sans-serif" }}
@@ -22,7 +30,7 @@ const Login = () => {
         <p style={{ marginBottom: "40px", color: "#555" }}>
           Please log in to continue to use <b>shopBiz</b>.
         </p>
-        <form style={{ width: "100%", maxWidth: "300px" }}>
+        <form style={{ width: "100%", maxWidth: "300px" }} onSubmit={handleLogin}>
           <div style={{ marginBottom: "20px" }}>
             <label htmlFor="email" style={{ display: "block", marginBottom: "8px" }}>
               Email or Username
