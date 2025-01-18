@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import ShoppingPageProducts from "@/components/ShoppingPageProducts";
+import BlogHomePagination from "@/components/BlogHomePagination";
 
 export default function Shopping() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -174,7 +176,7 @@ export default function Shopping() {
             {/* Product List */}
             <main className="lg:w-3/4">
               <div className="flex justify-between items-center mb-6">
-                <span className="text-gray-500">Sort By:</span>
+                <span className="text-black">Sort By:</span>
                 <div className="flex space-x-4">
                   <button className="px-4 py-2 border rounded-lg bg-black text-[#FFFFFF]">
                     Best Selling
@@ -185,84 +187,18 @@ export default function Shopping() {
                   <button className="px-4 py-2 border rounded-lg">
                     Price: High to Low
                   </button>
+                  
                 </div>
+                
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {products.map((product, index) => (
-                  <div
-                    key={index}
-                    className="border rounded-lg p-4 flex flex-col items-center text-center"
-                  >
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={150}
-                      height={150}
-                      className="mb-4"
-                    />
-                    <h3 className="font-semibold mb-2">{product.name}</h3>
-                    <div className="flex items-center mb-2">
-                      {Array(product.rating)
-                        .fill()
-                        .map((_, i) => (
-                          <span key={i} className="text-yellow-500">
-                            ★
-                          </span>
-                        ))}
-                    </div>
-                    <p className="text-gray-500 line-through mb-1">
-                      {product.originalPrice}
-                    </p>
-                    <p className="text-xl font-bold mb-2">{product.price}</p>
-                    <button className="bg-black text-white px-4 py-2 rounded-lg">
-                      Add to Cart
-                    </button>
-                  </div>
-                ))}
-              </div>
+              <ShoppingPageProducts/>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-8">
-                <div className="flex space-x-2">
-                  <button
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className={`px-3 py-1 ${
-                      currentPage === 1
-                        ? "text-gray-400 cursor-not-allowed"
-                        : "text-blue-500"
-                    }`}
-                  >
-                    {"<"}
-                  </button>
-                  {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                      key={i + 1}
-                      onClick={() => handlePageChange(i + 1)}
-                      className={`px-3 py-1 ${
-                        currentPage === i + 1
-                          ? "bg-blue-500 text-white"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      {i + 1}
-                    </button>
-                  ))}
-                  <button
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className={`px-3 py-1 ${
-                      currentPage === totalPages
-                        ? "text-gray-400 cursor-not-allowed"
-                        : "text-blue-500"
-                    }`}
-                  >
-                    {">"}
-                  </button>
-                </div>
-              </div>
+              <BlogHomePagination/>
+
             </main>
+
           </div>
         </div>
       </div>
