@@ -38,14 +38,14 @@ const BlogSingle = () => {
 Eu non diam phasellus vestibulum. Lacus sed turpis tincidunt id aliquet risus. Morbi non arcu risus quis varius quam quisque. Quam nulla porttitor massa id neque. Lectus proin nibh nisl condimentum id venenatis a. Vel turpis nunc eget lorem dolor sed viverra ipsum nunc. Porta lorem mollis aliquam ut porttitor leo a. Tristique nulla aliquet enim tortor at auctor. Nam aliquam sem et tortor consequat id. Diam vel quam elementum pulvinar etiam non quam. Vulputate dignissim suspendisse in est ante in nibh mauris cursus. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Purus sit amet volutpat consequat mauris nunc congue nisi vitae. Aenean sed adipiscing diam donec adipiscing. Pellentesque habitant morbi tristique senectus et netus et. Mattis pellentesque id nibh tortor id aliquet lectus proin nibh. Posuere lorem ipsum dolor sit amet. Libero volutpat sed cras ornare arcu dui vivamus arcu. Penatibus et magnis dis parturient montes nascetur.
           </p>
 
-          <BlogSingleAddComment/> 
-          <BlogSingleRelatedProducts/> 
-          <BlogSingleRelatedPosts/> 
-          <Footer /> 
+           
         </div>
         
       </div>
-      
+      <BlogSingleAddComment/> 
+          <BlogSingleRelatedProducts/> 
+          <BlogSingleRelatedPosts/> 
+          <Footer />
     </div>
           </div>  
                          
