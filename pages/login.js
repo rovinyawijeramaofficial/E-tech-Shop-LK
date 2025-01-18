@@ -102,14 +102,17 @@ const Login = () => {
         </Link>
       </div>
 
-      {/* Right Section */}
-      <div className="hidden md:flex md:w-1/2 items-center justify-center p-8">
-        <img
-          src="/images/dell-unsplash 1.png"
-          alt="Tablet showing colorful screen"
-          className="max-w-full rounded-lg shadow-md"
-        />
-      </div>
+{/* Right Section */}
+<div className="hidden md:flex md:w-1/2 items-center justify-center p-8">
+  <div className="relative" style={{ width: '960px', height: '1080px',  }}>
+    <img
+      src="/images/dell-unsplash 1.png"
+      alt="Tablet showing colorful screen"
+      className="rounded-bl-[110px] object-cover w-full h-full"
+    />
+  </div>
+</div>
+
     </div>
   );
 };
