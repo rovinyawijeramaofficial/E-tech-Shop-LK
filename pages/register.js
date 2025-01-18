@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Register = () => {
   const router = useRouter();
+  const [selectedAccount, setSelectedAccount] = useState(null);
 
   const handleNextClick = () => {
-    router.push("/registerform"); // Navigates to the RegisterForm page
+    if (selectedAccount) {
+      router.push("/registerform"); // Navigates to the RegisterForm page
+    } else {
+      alert("Please select an account type to proceed.");
+    }
+  };
+
+  const handleSelectAccount = (accountType) => {
+    setSelectedAccount(accountType);
   };
 
   return (
@@ -18,13 +27,23 @@ const Register = () => {
 
         {/* Account Type Options */}
         <div className="space-y-4">
-          <div className="border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2">
+          <div
+            onClick={() => handleSelectAccount("personal")}
+            className={`border rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2 ${
+              selectedAccount === "personal" ? "border-black bg-gray-100" : "border-gray-300"
+            }`}
+          >
             <h2 className="text-lg font-semibold">Personal Account</h2>
             <p className="text-sm text-gray-500">
               Get exclusive discount and shipping rates
             </p>
           </div>
-          <div className="border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2">
+          <div
+            onClick={() => handleSelectAccount("business")}
+            className={`border rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2 ${
+              selectedAccount === "business" ? "border-black bg-gray-100" : "border-gray-300"
+            }`}
+          >
             <h2 className="text-lg font-semibold">Business Account</h2>
             <p className="text-sm text-gray-500">
               Get the best prices when you're buying wholesale. Business
