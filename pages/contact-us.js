@@ -20,7 +20,7 @@ const ContactUs = () => {
           </div>
      
       <div className="content-container">
-        {/* Contact Form */}
+        {/* Contact Form */}  
         <div className="contact-form">
           <h2>Send a Message</h2>
           <form>
