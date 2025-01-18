@@ -60,7 +60,7 @@ export default function FeaturedProductCard({ product = {} }) {
         </div>
 
         {/* Button Handling */}
-        {id === 2 ? (
+        {id ===2 ? (
           <Link href={`/singleproduct/${id}`} passHref>
             <button className="py-3 px-6 rounded-lg h-[45.9px] w-[372.35px] mt-0 flex items-center justify-center space-x-2 bg-white border border-black text-black">
               <span>View Details</span>
