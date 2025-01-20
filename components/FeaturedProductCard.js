@@ -13,7 +13,7 @@ export default function FeaturedProductCard({ product = {} }) {
 
   return (
     <div
-      className="bg-white rounded-[15px] shadow-lg flex-shrink-0 w-[90%] max-w-[380px] p-4 relative mx-auto"
+      className="bg-white rounded-[15px] shadow-lg flex-shrink-0 w-full max-w-[320px] p-4 relative"
       style={{ boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.1)" }}
     >
       {/* Product Image */}
@@ -22,8 +22,8 @@ export default function FeaturedProductCard({ product = {} }) {
           <Image
             src={logo}
             alt={`${title} image`}
-            width={300}
-            height={300}
+            width={320}
+            height={320}
             className="rounded-t-[15px] object-cover"
             style={{ borderRadius: "15px 15px 0 0", opacity: 1 }}
           />
@@ -37,7 +37,7 @@ export default function FeaturedProductCard({ product = {} }) {
       {/* Left Side Content: Title, Rating, Price, and Button */}
       <div className="flex flex-col justify-start space-y-2 mt-2">
         {/* Product Title */}
-        <h3 className="text-black font-semibold text-sm text-center">
+        <h3 className="text-black font-semibold text-base text-center">
           {title || "No Title"}
         </h3>
 
@@ -50,9 +50,7 @@ export default function FeaturedProductCard({ product = {} }) {
               alt="Star"
               width={16}
               height={16}
-              className={`cursor-pointer ${
-                index < (userRating || rating) ? "opacity-100" : "opacity-50"
-              }`}
+              className={`cursor-pointer ${index < (userRating || rating) ? "opacity-100" : "opacity-50"}`}
               onClick={() => handleRatingClick(index + 1)}
             />
           ))}
@@ -77,7 +75,7 @@ export default function FeaturedProductCard({ product = {} }) {
           <Link href="/cart" passHref>
             <button className="py-2 px-4 rounded-lg w-full bg-black text-white flex items-center justify-center space-x-2 mt-2">
               <Image
-                src="/images/Shopping CartWhite.png"
+                src="/images/Shopping CartWhite.png" 
                 alt="Cart"
                 width={16}
                 height={16}
@@ -137,7 +135,7 @@ export function RelatedProduct() {
       </div>
 
       {/* Product Grid Section */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
         {products.map((product) => (
           <div key={product.id} className="flex justify-center">
             <FeaturedProductCard product={product} />
