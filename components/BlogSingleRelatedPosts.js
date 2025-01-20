@@ -4,19 +4,7 @@ const BlogSingleRelatedPosts = () => {
   // Latest Posts Data
   const latestPosts = [
     {
-      title: "Creating is a privilege but it’s also a gift",
-      description:
-        "Nullam vel lectus vel velit pellentesque dignissim nec id magna. Cras molestie ornare quam at semper.",
-      image: "/images/image 4.png",
-      categories: ["Lifestyle", "People", "Review"],
-      link: "#",
-    },
-    {
-      title: "Being unique is better than being perfect",
-      description:
-        "Nam in pretium dui. Phasellus dapibus, mi at molestie cursus, neque eros aliquet nisi, non efficitur nisi est nec mi.",
-      image: "/images/image 3.png",
-      categories: ["Design", "Product", "Idea"],
+      image: "/images/blog 1.png",
       link: "#",
     },
   ];
@@ -28,62 +16,43 @@ const BlogSingleRelatedPosts = () => {
         className="text-3xl font-bold mb-6"
         style={{
           height: "77px",
- 
+          width: "324px",
           fontFamily: "Poppins, sans-serif",
           fontWeight: 600,
           fontSize: "47.12px",
           lineHeight: "76.18px",
+          marginLeft:"82px",
         }}
       >
         Related Posts
       </h2>
 
       {/* Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2">
         {/* First Post */}
         <a
-          href="/blogarchivesearch"
+          href={latestPosts[0].link}
           key={0}
+          className="block"
           style={{
-            width: "1118px",
-            height: "576px",
-            top: "2201px",
-            left: "83px",
+          Height: "576px",
+          width: "1398px",
+          marginLeft:"78px",
+
           }}
         >
           <img
             src={latestPosts[0].image}
             alt={latestPosts[0].title}
-            style={{
-              width: "1118px",
-              height: "576px",
-              top: "2201px",
-              left: "83px",
-            }}
+            className="w-full h-auto rounded-lg shadow-md"
+            style={{ maxHeight: "300px" }}
           />
-        </a>
-
-        {/* Second Post */}
-        <a
-          href={latestPosts[1].link}
-          key={1}
-          style={{
-            width: "383px",
-            height: "576px",
-            position: "absolute",
-            right: "130px", // Adjusted to align with the right corner
-          }}
-        >
-          <img
-            src={latestPosts[1].image}
-            alt={latestPosts[1].title}
-            style={{
-              width: "383px",
-              height: "576px",
-              position: "absolute",
-              right: "125px", // Adjusted to align with the right corner
-            }}
-          />
+          <h3 className="mt-4 text-xl font-semibold text-center">
+            {latestPosts[0].title}
+          </h3>
+          <p className="mt-2 text-sm text-gray-600 text-center">
+            {latestPosts[0].description}
+          </p>
         </a>
       </div>
     </div>
