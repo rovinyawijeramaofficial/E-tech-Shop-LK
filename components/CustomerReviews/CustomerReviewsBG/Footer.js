@@ -11,85 +11,85 @@ const poppins = Poppins({
 const Footer = ({ isHomePage = false }) => {
   const footerContent = (
     <footer
-      className={`${poppins.className} backdrop-blur-lg z-30 px-4 lg:px-8 py-4 rounded-[25px] border border-[#00000080]`}
+      className={`${poppins.className} backdrop-blur-lg z-30 px-6 md:px-12 py-6 rounded-[25px] border border-[#00000080]`}
       style={{
-        height: "337px",
-        borderRadius: "20px",
+        borderRadius: "25px",
         border: "0.5px solid rgba(0, 0, 0, 0.5)",
         backdropFilter: "blur(20px)",
         margin: "0 auto",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        opacity: "0.9",
+        opacity: "0.95",
+        maxWidth: "1840px", // Centralizes layout for large screens
       }}
     >
-      <div className="container mx-auto px-12 md:px-20">
+      <div className="container mx-auto">
         {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-8 p-16">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-8 p-4 md:p-8">
           {/* Logo and Copyright */}
-          <div className="space-y-4">
-            <h2 className="text-lg font-bold">Shop/lk</h2>
-            <p className="text-sm font-bold">Copyright (C) 2022 | Shop/lk</p>
+          <div className="space-y-2 md:space-y-4 text-center md:text-left">
+            <h2 className="text-lg md:text-xl font-bold">Shop/lk</h2>
+            <p className="text-sm font-medium">Copyright (C) 2022 | Shop/lk</p>
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
-          {/* Links */}
-          <div className="grid grid-cols-2 gap-8">
-            <ul className="space-y-4">
+          {/* First Links Section */}
+          <div className="text-center md:text-left space-y-2">
+            <ul className="space-y-2">
               <li>
-                <Link href="/home"className="hover:underline text-sm font-bold">
+                <Link href="/home" className="hover:underline text-sm font-medium">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about-us"className="hover:underline text-sm font-bold">
+                <Link href="/about-us" className="hover:underline text-sm font-medium">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us" className="hover:underline text-sm font-bold">
+                <Link href="/contact-us" className="hover:underline text-sm font-medium">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/privacypolicy" className="hover:underline text-sm font-bold">
+                <Link href="/privacypolicy" className="hover:underline text-sm font-medium">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/privacypolicy" className="hover:underline text-sm font-bold">
-                  Terms And Conditions
+                <Link href="/terms" className="hover:underline text-sm font-medium">
+                  Terms and Conditions
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
-          {/* Links */}
-          <div className="grid grid-cols-2 gap-8">
-            <ul className="space-y-4">
+          {/* Second Links Section */}
+          <div className="text-center md:text-left space-y-2">
+            <ul className="space-y-2">
               <li>
-                <Link href="/cart" className="hover:underline text-sm font-bold">
+                <Link href="/cart" className="hover:underline text-sm font-medium">
                   Cart
                 </Link>
               </li>
               <li>
-                <Link href="/checkout" className="hover:underline text-sm font-bold">
+                <Link href="/checkout" className="hover:underline text-sm font-medium">
                   My Account
                 </Link>
               </li>
               <li>
-                <Link href="/confirmation" className="hover:underline text-sm font-bold">
+                <Link href="/confirmation" className="hover:underline text-sm font-medium">
                   Order History
                 </Link>
               </li>
               <li>
-                <Link href="/confirmation" className="hover:underline text-sm font-bold">
+                <Link href="/tracking" className="hover:underline text-sm font-medium">
                   Order Tracking
                 </Link>
               </li>
@@ -97,22 +97,55 @@ const Footer = ({ isHomePage = false }) => {
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#000000] h-full"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
           {/* Contact Info */}
-          <div className="space-y-10">
-            <div className="space-y-4">
-              <h3 className="font-bold text-sm ">Call Us:</h3>
-              <p className="text-sm font-bold ">0112 69 69 420</p>
-              <p className="text-sm font-bold ">0112 69 69 420</p>
-              <p className="text-sm font-bold ">0112 69 69 420</p>
+          <div className="space-y-4 text-center md:text-left">
+            <div className="space-y-2">
+              <h3 className="font-bold text-sm">Call Us:</h3>
+              <p className="text-sm font-medium">0112 69 69 420</p>
+              <p className="text-sm font-medium">0112 69 69 420</p>
+              <p className="text-sm font-medium">0112 69 69 420</p>
             </div>
             <div>
               <h3 className="font-bold text-sm">Email:</h3>
-              <p className="text-sm font-bold">info@shop.lk</p>
+              <p className="text-sm font-medium">info@shop.lk</p>
             </div>
           </div>
         </div>
+
+        {/* Social Media Icons: Only visible on iPhone 14 Pro Max */}
+        <div className="social-icons hidden iPhone14:flex justify-start space-x-6 mt-4 md:mt-0">
+            <a href="" className="text-black text-lg">
+              <img
+                src="/images/FacebookBig.png"
+                alt="Facebook"
+                className="w-8 h-8"
+              />
+            </a>
+            <a href="" className="text-black text-lg">
+              <img
+                src="/images/TwitterBig.png"
+                alt="Twitter"
+                className="w-8 h-8"
+              />
+            </a>
+            <a href="" className="text-black text-lg">
+              <img
+                src="/images/LinkedInBig.png"
+                alt="LinkedIn"
+                className="w-8 h-8"
+              />
+            </a>
+            <a href="" className="text-black text-lg">
+              <img
+                src="/images/InstagramBig.png"
+                alt="Instagram"
+                className="w-8 h-8"
+              />
+            </a>
+          </div>
+          
       </div>
     </footer>
   );
