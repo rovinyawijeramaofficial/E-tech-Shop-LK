@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '@/components/CustomerReviews/CustomerReviewsBG/Footer';
 import Header from '@/components/Header';
 import BlogHomePagination from "@/components/BlogHomePagination";
+import BlogHomeLatestPosts from "@/components/BlogHomeLatestPosts";
 import Newsletter from "@/components/Newsletter";
 import { useRouter } from 'next/router';
 
@@ -54,31 +55,11 @@ const BlogHome = () => {
       link: '#',
     },
   ];
-    
-
-  const latestPosts = [
-    {
-      title: "Creating is a privilege but it’s also a gift",
-      description:
-        "Nullam vel lectus vel velit pellentesque dignissim nec id magna. Cras molestie ornare quam at semper.",
-      image: "/images/image 4.png",
-      categories: ["Lifestyle", "People", "Review"],
-      link: '#',
-    },
-    {
-      title: "Being unique is better than being perfect",
-      description:
-        "Nam in pretium dui. Phasellus dapibus, mi at molestie cursus, neque eros aliquet nisi, non efficitur nisi est nec mi.",
-      image: "/images/image 3.png",
-      categories: ["Design", "Product", "Idea"],
-      link: '#',
-    },
-  ];
 
   return (
     <>
       <Header />
-      <div className="container mt-60 mx-auto px-4 py-8">
+      <div className="left-[40px] w-[calc(100vw-97px)] mt-60 mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="mb-8 bg-black text-white px-6 py-20 rounded-[25px]">
           <h3 className="text-gray-400">Home / Blog</h3>
@@ -88,85 +69,54 @@ const BlogHome = () => {
         {/* Posts Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 -mt-20">
           {posts.map((post, index) => (
-            <a href="/blogsingle">
-            <div
-              key={index}
-              className="relative bg-white rounded-[15px] overflow-hidden shadow-lg border"
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-56 object-cover"
-              />
-              <div className="p-4">
-                <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
-                  {post.category}
-                </span>
-                <h3 className="text-black text-lg font-semibold mt-2">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 text-sm mt-1">{post.description}</p>
+            <a href="/blogsingle" key={index}>
+              <div className="relative bg-white rounded-[15px] overflow-hidden shadow-lg border">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-56 object-cover"
+                />
+                <div className="p-4">
+                  <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded uppercase">
+                    {post.category}
+                  </span>
+                  <h3 className="text-black text-lg font-semibold mt-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">{post.description}</p>
+                </div>
               </div>
-            </div>
             </a>
           ))}
         </div>
+        
 
-{/* Search Bar Section */}
-<div className="mb-8 flex justify-center">
-  {/* Outer Container */}
-  <div className="border border-gray-300 rounded-lg w-full max-w-9xl p-6 bg-white">
-    {/* Title and Search Bar in a Row */}
-    <div className="flex justify-between items-center">
-      {/* Title */}
-      <div className="text-lg font-semibold text-black">
-        Browse Through Our Blog
-      </div>
-      {/* Search Bar */}
-      <div className="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm w-full max-w-6xl">
-        {/* Input Field */}
-        <input
-          type="text"
-          placeholder="Try searching 'Smart TV'"
-          className="p-4 w-full text-gray-500 placeholder-gray-500 focus:outline-none"
-          id="searchInput"
-        />
-        {/* Search Button */}
-        <button
-          className="bg-black text-white px-6 py-4 flex items-center"
-          onClick={() => {
-            const searchQuery = document.getElementById('searchInput').value;
-            window.location.href = `/blogarchivesearch?query=${encodeURIComponent(searchQuery)}`;
-          }}
-        >
-          <img
-            src="/images/SearchWhite.png"
-            alt="Search Icon"
-            className="w-5 h-5 mr-2"
-          />
-          Search
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        {/* Recommended Posts Section */}
-        <div className="mb-12">
+{/* Recommended Posts Section */}
+<div className="mb-12">
+<div className="mb-12">
   <h2
-    className="text-2xl font-bold mb-4"
+    className="text-3xl font-bold mb-6 text-center lg:text-left"
     style={{
-      height: "77px",
-      width: "510px",
-      fontFamily: "poppins",
+      fontFamily: "Poppins",
       fontWeight: 600,
       fontSize: "47.12px",
       lineHeight: "76.18px",
+  
     }}
   >
     Recommended Posts
   </h2>
+  <style 
+  jsx>{`
+    @media (max-width: 430px) and (min-width: 430px) and (max-height: 932x) and (min-height: 932px) {
+      h2 {
+        margin-left: -20px;
+      }
+    }
+  `} 
+  </style>
+</div>
+
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <div
       className="lg:col-span-2 relative bg-black rounded-[25px] overflow-hidden shadow-lg cursor-pointer"
@@ -215,126 +165,15 @@ const BlogHome = () => {
   </div>
 </div>
 
+        {/* BlogHomeLatestPosts Section */}
+        <BlogHomeLatestPosts />
 
-        {/* Latest Posts Section */}
-<div className="mb-12">
-  <h2
-    className="text-3xl font-bold mb-6"
-    style={{
-      height: "77px",
-      width: "285px",
-      fontFamily: "poppins",
-      fontWeight: 600,
-      fontSize: "47.12px",
-      lineHeight: "76.18px",
-    }}
-  >
-    Latest Posts
-  </h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {/* Image 4.png */}
-    <a
-      href="/blogsingle"
-      key={0}
-      style={{
-        width: "1118px",
-        height: "576px",
-        top: "2201px",
-        left: "83px",
-      }}
-    >
-      <img
-        src={latestPosts[0].image}
-        alt={latestPosts[0].title}
-        style={{
-          width: "1118px",
-          height: "576px",
-          top: "2201px",
-          left: "83px",
-        }}
-      />
-    </a>
-
-    {/* Image 3.png */}
-    <a
-      href="/blogsingle"
-      key={1}
-      style={{
-        width: "383px",
-        height: "576px",
-        position: "absolute",
-        right: "130px", // Adjusted to align with the right corner
-      }}
-    >
-      <img
-        src={latestPosts[1].image}
-        alt={latestPosts[1].title}
-        style={{
-          width: "383px",
-          height: "576px",
-          position: "absolute",
-          right: "125px", // Adjusted to align with the right corner
-        }}
-      />
-    </a>
-  </div>
-  <br />
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {/* Image 4.png */}
-    <a
-      href="/blogsingle"
-      key={2}
-      style={{
-        width: "1118px",
-        height: "576px",
-        top: "2201px",
-        left: "83px",
-      }}
-    >
-      <img
-        src={latestPosts[0].image}
-        alt={latestPosts[0].title}
-        style={{
-          width: "1118px",
-          height: "576px",
-          top: "2201px",
-          left: "83px",
-        }}
-      />
-    </a>
-
-    {/* Image 3.png */}
-    <a
-      href="/blogsingle"
-      key={3}
-      style={{
-        width: "383px",
-        height: "576px",
-        position: "absolute",
-        right: "130px", // Adjusted to align with the right corner
-      }}
-    >
-      <img
-        src={latestPosts[1].image}
-        alt={latestPosts[1].title}
-        style={{
-          width: "383px",
-          height: "576px",
-          position: "absolute",
-          right: "125px", // Adjusted to align with the right corner
-        }}
-      />
-    </a>
-  </div>
-</div>
-
-<BlogHomePagination/>
-<Newsletter/>
-
+        <BlogHomePagination />
+        <Newsletter />
       </div>
       <Footer />
     </>
   );
 };
 
-export default BlogHome; 
+export default BlogHome;
