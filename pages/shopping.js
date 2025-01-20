@@ -1,6 +1,5 @@
 import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import Header from "@/components/Header";
-import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import ShoppingPageProducts from "@/components/ShoppingPageProducts";
@@ -44,31 +43,23 @@ export default function Shopping() {
   return (
     <>
       <Header />
-      <div className="bg-white min-h-screen">
-        <div className="container mx-auto py-8 px-4 mt-60">
+      <div className="bg-white min-h-screen mt-60">
+        <div className="container mx-auto py-8 px-4">
           {/* Breadcrumb and Title */}
           <button
             className="mb-6 bg-black text-white px-8 py-16 rounded-[25px] text-left w-full"
           >
             <h2 className="text-lg text-gray-300">Home / All Products</h2>
-            <h1 className="text-4xl font-bold">All Products</h1>
+            <h1 className="text-3xl font-bold">All Products</h1>
           </button>
 
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-6">
             {/* Sidebar */}
             <aside className="lg:w-1/4">
               <h3 className="text-xl font-bold mb-4">Filter Products</h3>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* Availability */}
-                <div
-                  className="border rounded-lg p-4"
-                  style={{
-                    width: "275px",
-                    height: "168px",
-                    borderRadius: "23px",
-                    padding: "35px 100px 35px 45px",
-                  }}
-                >
+                <div className="border rounded-lg p-4">
                   <h4 className="font-semibold mb-4">Availability</h4>
                   <div className="space-y-2">
                     <label className="flex items-center space-x-2">
@@ -83,15 +74,7 @@ export default function Shopping() {
                 </div>
 
                 {/* Brands */}
-                <div
-                  className="border rounded-lg p-4"
-                  style={{
-                    width: "275px",
-                    height: "168px",
-                    borderRadius: "23px",
-                    padding: "35px 100px 35px 45px",
-                  }}
-                >
+                <div className="border rounded-lg p-4">
                   <h4 className="font-semibold mb-4">Brands</h4>
                   <div className="space-y-2">
                     <label className="flex items-center space-x-2">
@@ -110,16 +93,8 @@ export default function Shopping() {
                 </div>
 
                 {/* Price Range */}
-                <div
-                  className="border rounded-lg p-4"
-                  style={{
-                    width: "275px",
-                    height: "168px",
-                    borderRadius: "23px",
-                    padding: "35px 20px",
-                  }}
-                >
-                  <h4 className="font-semibold mb-4 left-[355px]">Price Range</h4>
+                <div className="border rounded-lg p-4">
+                  <h4 className="font-semibold mb-4">Price Range</h4>
                   <div className="relative space-y-2">
                     <div className="flex items-center justify-between">
                       <input
@@ -177,7 +152,7 @@ export default function Shopping() {
               <div className="flex justify-between items-center mb-6">
                 <span className="text-black">Sort By:</span>
                 <div className="flex space-x-4">
-                  <button className="px-4 py-2 border rounded-lg bg-black text-[#FFFFFF]">
+                  <button className="px-4 py-2 border rounded-lg bg-black text-white">
                     Best Selling
                   </button>
                   <button className="px-4 py-2 border rounded-lg">
@@ -186,16 +161,13 @@ export default function Shopping() {
                   <button className="px-4 py-2 border rounded-lg">
                     Price: High to Low
                   </button>
-                  
                 </div>
-                
               </div>
 
-              <ShoppingPageProducts/>
+              <ShoppingPageProducts />
 
               {/* Pagination */}
-              <BlogHomePagination/>
-
+              <BlogHomePagination />
             </main>
           </div>
         </div>
