@@ -50,13 +50,10 @@ export default function FeaturedProduct() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 md:p-10 bg-gray-100">
+    <div className="p-4 sm:p-6 md:p-8 bg-gray-100">
       {/* Header Section */}
-      <div className="pt-10 flex justify-between -mt-10 items-center mb-6">
-        <h2
-          className="font-poppins font-semibold text-[47.12px] leading-[76.18px] text-[#000000]"
-          style={{ width: "415px", height: "77px" }}
-        >
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="font-poppins font-semibold text-[24px] sm:text-[28px] text-black leading-[1.2]">
           On Sale Products
         </h2>
       </div>
@@ -67,36 +64,36 @@ export default function FeaturedProduct() {
           modules={[Navigation, Pagination]}
           navigation={{ prevEl: ".custom-prev", nextEl: ".custom-next" }}
           pagination={{ el: ".custom-pagination", clickable: true }}
-          spaceBetween={1}
+          spaceBetween={8}
           slidesPerView={1}
           breakpoints={{
+            430: { slidesPerView: 1.5, spaceBetween: 12 },
             640: { slidesPerView: 2, spaceBetween: 16 },
             1024: { slidesPerView: 4, spaceBetween: 24 },
           }}
         >
-          {products.map((product, index) => (
-            <SwiperSlide key={index}>
-              {/* Pass the product data correctly to the FeaturedProductCard */}
+          {products.map((product) => (
+            <SwiperSlide key={product.id}>
               <FeaturedProductCard product={product} />
             </SwiperSlide>
           ))}
         </Swiper>
 
         {/* Custom Navigation Arrows */}
-        <button className="custom-prev absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition">
+        <button className="custom-prev absolute top-1/2 -left-4 sm:-left-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-gray-200 transition">
           <img
             src="/images/ExcludeBig.png"
             alt="Left Arrow"
-            width={20}
-            height={20}
+            width={16}
+            height={16}
           />
         </button>
-        <button className="custom-next absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition">
+        <button className="custom-next absolute top-1/2 -right-4 sm:-right-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-gray-200 transition">
           <img
             src="/images/IncludeBig.png"
             alt="Right Arrow"
-            width={20}
-            height={20}
+            width={16}
+            height={16}
           />
         </button>
 
@@ -106,10 +103,10 @@ export default function FeaturedProduct() {
 
       {/* View More Button */}
       <div className="mt-6 flex justify-center">
-      <a href="/shopping" passHref>
-        <button className="bg-white border border-black py-2 px-6 rounded-md font-semibold text-black hover:bg-black hover:text-white transition">
-          View More
-        </button>
+        <a href="/shopping" passHref>
+          <button className="bg-white border border-black py-2 px-6 rounded-md font-semibold text-black hover:bg-black hover:text-white transition">
+            View More
+          </button>
         </a>
       </div>
     </div>
