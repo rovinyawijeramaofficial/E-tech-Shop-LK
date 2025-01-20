@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins';
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -211,3 +211,5 @@ body {
 .map {
   margin-top: 20px;
 }
+
+
