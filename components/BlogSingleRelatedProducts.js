@@ -1,11 +1,7 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import React from "react";
 import FeaturedProductCard from "./FeaturedProductCard";
 
-export default function FeaturedProduct() {
+export default function RelatedProduct() {
   const products = [
     {
       id: 1,
@@ -39,14 +35,6 @@ export default function FeaturedProduct() {
       originalPrice: "Rs.399,999",
       rating: 5,
     },
-    {
-      id: 5,
-      logo: "/images/Rectangle 30.png",
-      title: "iPhone 14 Pro Max - 256GB",
-      price: "Rs.249,999",
-      originalPrice: "Rs.399,999",
-      rating: 5,
-    },
   ];
 
   return (
@@ -55,61 +43,28 @@ export default function FeaturedProduct() {
       <div className="pt-10 flex justify-between -mt-10 items-center mb-6">
         <h2
           className="font-poppins font-semibold text-[47.12px] leading-[76.18px] text-[#000000]"
-          style={{ width: "415px", height: "77px" }}
+          style={{ width: "408px", height: "77px", marginLeft: "82px" }}
         >
           Related Products
         </h2>
       </div>
 
-      {/* Swiper Section */}
-      <div className="relative">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          navigation={{ prevEl: ".custom-prev", nextEl: ".custom-next" }}
-          pagination={{ el: ".custom-pagination", clickable: true }}
-          spaceBetween={1}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 16 },
-            1024: { slidesPerView: 4, spaceBetween: 24 },
-          }}
-        >
-          {products.map((product, index) => (
-            <SwiperSlide key={index}>
-              {/* Pass the product data correctly to the FeaturedProductCard */}
-              <FeaturedProductCard product={product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* Custom Navigation Arrows */}
-        <button className="custom-prev absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition">
-          <img
-            src="/images/ExcludeBig.png"
-            alt="Left Arrow"
-            width={20}
-            height={20}
-          />
-        </button>
-        <button className="custom-next absolute top-1/2 -right-6 transform -translate-y-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition">
-          <img
-            src="/images/IncludeBig.png"
-            alt="Right Arrow"
-            width={20}
-            height={20}
-          />
-        </button>
-
-        {/* Custom Pagination */}
-        <div className="custom-pagination mt-4 flex justify-center"></div>
+      {/* Product Grid Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <div key={product.id} className="flex justify-center">
+            {/* Pass the product data correctly to the FeaturedProductCard */}
+            <FeaturedProductCard product={product} />
+          </div>
+        ))}
       </div>
 
       {/* View More Button */}
       <div className="mt-6 flex justify-center">
-      <a href="/shopping" passHref>
-        <button className="bg-white border border-black py-2 px-6 rounded-md font-semibold text-black hover:bg-black hover:text-white transition">
-          View More
-        </button>
+        <a href="/shopping" passHref>
+          <button className="bg-white border border-black py-2 px-6 rounded-md font-semibold text-black hover:bg-black hover:text-white transition">
+            View More
+          </button>
         </a>
       </div>
     </div>
