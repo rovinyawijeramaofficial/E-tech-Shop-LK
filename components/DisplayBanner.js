@@ -155,29 +155,68 @@ const DisplayBanner = () => {
       </div>
 
       {/* Mobile View */}
-      <div className="block md:hidden w-full h-[524px] sm:h-[863px] relative overflow-hidden">
+      <div className="md:hidden w-full h-[524px] sm:h-[863px] relative overflow-hidden">
         {/* Background Container */}
         <div
-          className="w-full h-full absolute"
+          className="w-[496px] h-[524px]"
           style={{
             backgroundImage: "url('/images/dell-unsplash 1.png')",
-            backgroundSize: "160%",
-            backgroundPosition: "right -120px top",
-            top: "80px",
+            backgroundSize: "210%",
+            backgroundPosition: "right -210px top",
+            left:"496px",
             zIndex: "-1",
           }}
         ></div>
 
-        {/* Text Content */}
-        <div className="relative z-10 px-6 sm:px-12 pt-20">
-          <h1 className="text-white text-4xl sm:text-5xl font-bold">
-            All New <br /> <span className="text-yellow-500">Dell XPS 13</span>
-          </h1>
-          <p className="text-white mt-4 text-sm sm:text-lg max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
-        </div>
+        {/* Text and Vector Overlays */}
+<div
+  className="absolute z-20 flex flex-col justify-center items-start w-full px-4 sm:px-8"
+  style={{ bottom: "30%" }} // Positioned closer to the bottom
+>
+  {/* Text Container */}
+  <div className="text-white">
+    
+ {/* Main Heading */}
+<h1
+  className="absolute"
+  style={{
+    fontFamily: "Poppins",
+    fontWeight: 500,
+    fontSize: "58.35px",
+    lineHeight: "68.11px",
+    width: "321px",
+    height: "137px",
+    bottom: "30px", // Adjusted from 205px to move it down
+    left: "10px",
+    margin: 0,
+  }}
+>
+  All New <br />
+  <span style={{ fontWeight: 700 }}>Dell XPS 13</span>
+</h1>
+
+
+    {/* Subheading */}
+    <p
+  className="absolute"
+  style={{
+    fontFamily: "Poppins",
+    fontWeight: 400,
+    fontSize: "18px",
+    lineHeight: "33.99px",
+    width: "384px",
+    height: "68px",
+    top: "0px",
+    left: "10px",
+    margin: 0,
+  }}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+</p>
+  </div>
+</div>
+
+
       </div>
     </div>
   );
