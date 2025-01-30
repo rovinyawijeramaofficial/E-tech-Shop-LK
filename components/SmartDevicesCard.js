@@ -2,35 +2,24 @@ import Image from "next/image";
 
 export default function SmartDevicesCard({ device }) {
   return (
-    <div
-      className="shadow-md overflow-hidden relative mx-auto"
-      style={{
-        width: "100%", // Make it flexible for smaller screens
-        maxWidth: "416px", // Ensure it doesn't exceed design width
-        height: "198px",
-        borderRadius: "14px",
-      }}
-    >
-      {/* Product Image */}
-      <div className="w-full h-full relative">
+    <div className="mx-auto mt-5">
+
+      {/* Desktop View */}
+      <div className="hidden md:block shadow-md overflow-hidden relative rounded-[14px]">
+        {/* Product Image - Fully Covers the Card */}
         <Image
           src={device.logo}
           alt={`${device.title} image`}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
+          width={416}
+          height={198}
+          className="rounded-[14px] object-cover w-full h-full"
         />
+
         {/* Title Overlay */}
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{
-            backgroundColor: "rgba(24, 16, 8, 0.22)", // Simplified RGBA for opacity
-          }}
-        >
+        <div className="absolute inset-0 flex items-center justify-center bg-[rgba(24,16,8,0.22)]">
           <h3
-            className="text-white font-bold text-center"
+            className="text-white font-bold text-center text-[20px]"
             style={{
-              fontSize: "20px", // Responsive font size
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               lineHeight: "1.5",
@@ -41,6 +30,33 @@ export default function SmartDevicesCard({ device }) {
           </h3>
         </div>
       </div>
+
+      {/* Mobile View */}
+<div className="block md:hidden shadow-md overflow-hidden relative rounded-[7.71px] w-[228.97px] h-[108.98px] mx-2">
+  {/* Product Image - Fully Covers the Card */}
+  <Image
+    src={device.logo}
+    alt={`${device.title} image`}
+    width={228.97}
+    height={108.98}
+    className="rounded-[7.71px] object-cover w-full h-full"
+  />
+
+  {/* Title Overlay */}
+  <div className="absolute inset-0 flex items-center justify-center ">
+    <h3
+      className="text-white font-bold text-center text-[16px]"
+      style={{
+        fontFamily: "Poppins, sans-serif",
+        fontWeight: 600,
+        lineHeight: "1.5",
+      }}
+    >
+      {device.title}
+    </h3>
+  </div>
+</div>
+
     </div>
   );
 }
