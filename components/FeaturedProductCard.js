@@ -13,9 +13,9 @@ export default function FeaturedProductCard({ product = {} }) {
 
   return (
     <div
-      className="bg-white rounded-[15px] shadow-lg flex-shrink-0 w-full max-w-[320px] p-4 relative"
-      style={{ boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.1)" }}
-    >
+    className="bg-white rounded-[15px] shadow-lg flex-shrink-0  p-4 relative"
+    style={{ boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.1)" }}
+  >
       {/* Product Image */}
       {logo ? (
         <div className="flex justify-center">
@@ -37,32 +37,33 @@ export default function FeaturedProductCard({ product = {} }) {
       {/* Left Side Content: Title, Rating, Price, and Button */}
       <div className="flex flex-col justify-start space-y-2 mt-2">
         {/* Product Title */}
-        <h3 className="text-black font-semibold text-base text-center">
+        <h3 className="text-black text-base ">
           {title || "No Title"}
         </h3>
 
         {/* Product Rating */}
-        <div className="flex justify-center mt-2">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <Image
-              key={index}
-              src="/images/star Filled.png"
-              alt="Star"
-              width={16}
-              height={16}
-              className={`cursor-pointer ${index < (userRating || rating) ? "opacity-100" : "opacity-50"}`}
-              onClick={() => handleRatingClick(index + 1)}
-            />
-          ))}
-        </div>
+<div className="flex mt-1 relative -translate-y-1">
+  {Array.from({ length: 5 }).map((_, index) => (
+    <Image
+      key={index}
+      src="/images/star Filled.png"
+      alt="Star"
+      width={16}
+      height={16}
+      className={`cursor-pointer ${index < (userRating || rating) ? "opacity-100" : "opacity-50"}`}
+      onClick={() => handleRatingClick(index + 1)}
+    />
+  ))}
+</div>
+
 
         {/* Product Price */}
-        <div className="flex flex-col items-center space-y-1">
-          <p className="text-black font-bold text-lg">{price || "No Price"}</p>
-          <p className="text-gray-400 line-through text-sm">
-            {originalPrice || "No Original Price"}
-          </p>
-        </div>
+<div className="flex items-center">
+  <span className="text-black font-bold text-lg">{price || "No Price"}</span>
+  <span className="flex line-through text-sm mx-3  -translate-y-0.5">
+    {originalPrice || "No Original Price"}
+  </span>
+</div>
 
         {/* Button Handling */}
         {id === 2 ? (
@@ -77,8 +78,8 @@ export default function FeaturedProductCard({ product = {} }) {
               <Image
                 src="/images/Shopping CartWhite.png" 
                 alt="Cart"
-                width={16}
-                height={16}
+                width={27.54}
+                height={27.54}
               />
               <span>Add to Cart</span>
             </button>
