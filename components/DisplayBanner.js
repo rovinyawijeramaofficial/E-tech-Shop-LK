@@ -10,7 +10,7 @@ const DisplayBanner = () => {
   };
 
   return (
-    <div className="w-full relative overflow-hidden">
+    <div className="w-full relative overflow-hidden -mt-5">
       {/* Desktop View */}
       <div className="hidden md:block w-full h-[850px] relative bg-black overflow-hidden">
         {/* Background Image */}
