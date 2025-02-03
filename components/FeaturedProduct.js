@@ -75,7 +75,7 @@ export default function FeaturedProduct() {
           <div className="flex justify-center mt-6">
             <button
               onClick={() => router.push("/shopping")}
-              className="bg-white border border-gray-300 py-2 px-5 rounded-[25px] w-[152.26px] h-[35.07px] text-[12.67px] font-poppins font-light text-black hover:bg-gray-200 transition"
+              className="-mt-3 bg-white border border-gray-300 py-2 px-5 rounded-[25px] w-[152.26px] h-[35.07px] text-[12.67px] font-poppins font-light text-black hover:bg-gray-200 transition"
             >
               View More
             </button>
