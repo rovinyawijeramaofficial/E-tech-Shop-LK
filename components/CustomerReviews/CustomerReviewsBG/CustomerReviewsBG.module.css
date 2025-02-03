@@ -1,12 +1,45 @@
+/* CustomerReviewsBG.module.css */
+/* Background with a soft yellowish glow on both sides and a blended purple center */
 .backgroundContainer {
-  background-image: url('/images/Group 56.png');
+  background: linear-gradient(to right, #edd8aa 20%, #e6dbf4 45%, #cebd9a 90%);
+  background: linear-gradient(to left, #eddfca 20%, #e5daeb 45%, #d7c8a9 90%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 50vh; /* Ensures the background spans the full viewport height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%; /* Make the background span the full width */
+  width: 100%;
+  padding: 40px 0;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  backdrop-filter: blur(25px) saturate(180%); /* Stronger glass effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Footer Specific Styling */
+.footerContainer {
+  background: rgba(255, 255, 255, 0.15); /* Slight transparency for glass effect */
+  border-radius: 25px; /* Smooth rounded corners */
+  padding: 20px;
+  max-width: 1840px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  backdrop-filter: blur(25px) saturate(180%); /* Stronger glass effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Depth effect */
+  color: rgba(255, 255, 255, 0.8); /* Ensure text remains readable */
+  text-align: center;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .backgroundContainer {
+    background-size: contain; /* Adjust to fit smaller screens */
+    min-height: auto; /* Allow dynamic height */
+    padding: 20px 0;
+  }
 }
