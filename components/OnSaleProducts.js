@@ -50,7 +50,7 @@ export default function FeaturedProduct() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 bg-gray-100">
+    <div className="hidden md:block p-4 sm:p-6 md:p-8 bg-gray-100">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-poppins font-semibold text-[24px] sm:text-[28px] text-black leading-[1.2]">
@@ -112,3 +112,4 @@ export default function FeaturedProduct() {
     </div>
   );
 }
+
