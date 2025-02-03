@@ -1,6 +1,6 @@
 import React from "react";
 import OnSaleProducts from "@/components/OnSaleProducts";
-import CustomerReviewsCard from "@/components/CustomerReviews/CustomerReviewsCard/CustomerReviewsCard";
+import CustomerReviewsCard from "@/components/CustomerReviews/CustomerReviewsBG/CustomerReviewsCard";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
 import Header from "@/components/Header";
