@@ -2,12 +2,6 @@
   padding: 6rem 1rem;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
 .heading {
   font-size: 2rem;
   font-weight: bold;
@@ -18,17 +12,50 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
   gap: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 3rem; /* Ensuring symmetry */
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row for tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 per row on mobile */
+  }
 }
 
 .card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(221, 206, 206, 0.2); /* Semi-transparent white */
+  border-radius: 15px;
+  box-shadow: none;
   padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #eaeaea;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  position: relative;
+  width: 524px;
+  height: 233px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+
+
+/* First card in each row (Shift left slightly) */
+.hiddenLeft {
+  margin-left: -100px;
+}
+
+/* Fourth card in each row (More visibility without breaking layout) */
+.highlightFourth {
+  opacity: 1; /* Ensures full visibility */
+  z-index: 10; /* Brings it slightly forward */
+  transform: scale(1.05); /* Slightly larger without breaking grid */
 }
 
 .card:hover {
@@ -49,14 +76,22 @@
 }
 
 .text {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 1rem;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 29.12px;
+  color: #000000;
+  text-align: left;
+  width: 431px; /* Ensure consistent width */
 }
 
 .author {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
-  text-align: right;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  line-height: 29.12px;
+  color: #000000;
+  text-align: left;
+  width: 431px; /* Ensuring proper alignment */
 }
+
