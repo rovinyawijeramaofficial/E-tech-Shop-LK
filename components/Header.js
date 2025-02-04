@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { Poppins } from "next/font/google";
 
@@ -12,7 +12,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartHovered, setIsCartHovered] = useState(false);
   const [isUserHovered, setIsUserHovered] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [showHeader, setShowHeader] = useState(true);
+  const [isScrolling, setIsScrolling] = useState(false);
   const router = useRouter();
+  const headerRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,14 +28,55 @@ const Header = () => {
     router.push("/searchshopping");
   };
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let timeoutId;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const headerHeight = headerRef.current?.offsetHeight || 0;
+
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection("down");
+        setShowHeader(false);
+        setIsScrolling(true);
+      } else if (currentScrollY <= headerHeight) {
+        setScrollDirection("up");
+        setShowHeader(true);
+        setIsScrolling(false);
+        clearTimeout(timeoutId);
+      } else if (isScrolling) {
+        setScrollDirection("up");
+        setShowHeader(false);
+      } else {
+        setScrollDirection("up");
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          setShowHeader(true);
+        }, 100);
+        setIsScrolling(false);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [isScrolling]);
+
+
   return (
     <header
-  className={`${poppins.className} fixed left-[20px] sm:left-[40px] w-[calc(100vw-40px)] sm:w-[calc(100vw-97px)] max-w-[1840px] h-[100px] sm:h-[217px] top-[16px] sm:top-[32px] ${
-    isHomePage
-      ? "bg-[#ffffff]/20 border border-transparent"
-      : "bg-white/40 border border-[#00000080]"
-  } backdrop-blur-lg z-50 px-2 sm:px-4 lg:px-8 py-2 sm:py-4 rounded-[15px] sm:rounded-[25px]`}
->
+      className={`${poppins.className} fixed left-[20px] sm:left-[40px] w-[calc(100vw-40px)] sm:w-[calc(100vw-97px)] max-w-[1840px] h-[100px] sm:h-[217px] top-[16px] sm:top-[32px] z-50 px-2 sm:px-4 lg:px-8 py-2 sm:py-4 rounded-[15px] sm:rounded-[25px] transition-transform duration-300 ease-in-out ${
+        showHeader ? "translate-y-0" : "-translate-y-full"
+      } ${
+        isHomePage
+          ? "bg-[#ffffff]/20 border border-transparent"
+          : "bg-white/40 border border-[#00000080]"
+      } backdrop-blur-lg`}
+    >
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link
@@ -298,7 +343,7 @@ const Header = () => {
           </nav>
         </div>
       )}
-      
+
     </header>
   );
 };
