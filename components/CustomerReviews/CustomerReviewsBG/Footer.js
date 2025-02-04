@@ -10,74 +10,78 @@ const poppins = Poppins({
 const Footer = () => {
   return (
     <footer
-      className={`${poppins.className} backdrop-blur-lg z-30 px-6 md:px-12 py-6 rounded-[25px] border border-[#00000040]`} 
+      className={`${poppins.className} backdrop-blur-lg z-30 px-6 md:px-12 py-6 border border-[#00000040]`} 
       style={{
         borderRadius: "20px",
-        border: "0.5px solid rgba(0, 0, 0, 0.2)", // **Thinner border**
-        backdropFilter: "blur(20px)", // **Fixed extreme blur issue**
+        border: "0.5px solid rgba(0, 0, 0, 0.2)", 
+        backdropFilter: "blur(20px)", 
         margin: "0 auto",
+        width: "95vw",
+        height: "24vw",
+        maxWidth: "100%",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         opacity: "0.95",
-        maxWidth: "1840px",
       }}
     >
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-8 p-4 md:p-8">
           {/* Logo and Copyright */}
-          <div className="space-y-2 md:space-y-4 text-center md:text-left">
-            <h2 className="text-lg md:text-xl font-bold">Shop/lk</h2>
-            <p className="text-sm font-medium">Copyright (C) 2022 | Shop/lk</p>
+          <div className="space-y-2 md:space-y-4 text-left ml-[-50px]">
+            <h2 className="text-[32.82px] font-700 font-bold leading-[49.23px] text-black">Shop/lk</h2>
+            <p className="text-[18px] font-400 leading-[27px] text-black w-[255px] h-[27px]">
+              Copyright (C) 2022 | Shop/lk
+            </p>
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#00000040] h-auto"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
           {/* First Links Section */}
-          <div className="text-center md:text-left space-y-2">
-            <ul className="space-y-2">
-              <li><Link href="/home" className="hover:underline text-sm font-medium">Home</Link></li>
-              <li><Link href="/about-us" className="hover:underline text-sm font-medium">About</Link></li>
-              <li><Link href="/contact-us" className="hover:underline text-sm font-medium">Contact</Link></li>
-              <li><Link href="/privacypolicy" className="hover:underline text-sm font-medium">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:underline text-sm font-medium">Terms and Conditions</Link></li>
+          <div className="text-center md:text-left">
+            <ul>
+              <li><Link href="/home" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Home</Link></li>
+              <li><Link href="/about-us" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">About</Link></li>
+              <li><Link href="/contact-us" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Contact</Link></li>
+              <li><Link href="/privacypolicy" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Terms and Conditions</Link></li>
             </ul>
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#00000040] h-auto"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
           {/* Second Links Section */}
-          <div className="text-center md:text-left space-y-2">
-            <ul className="space-y-2">
-              <li><Link href="/cart" className="hover:underline text-sm font-medium">Cart</Link></li>
-              <li><Link href="/checkout" className="hover:underline text-sm font-medium">My Account</Link></li>
-              <li><Link href="/confirmation" className="hover:underline text-sm font-medium">Order History</Link></li>
-              <li><Link href="/tracking" className="hover:underline text-sm font-medium">Order Tracking</Link></li>
+          <div className="text-center md:text-left">
+            <ul>
+              <li><Link href="/cart" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Cart</Link></li>
+              <li><Link href="/checkout" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">My Account</Link></li>
+              <li><Link href="/confirmation" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Order History</Link></li>
+              <li><Link href="/tracking" className="text-[18px] leading-[67px] text-black hover:underline text-sm font-400">Order Tracking</Link></li>
             </ul>
           </div>
 
           {/* Vertical Line */}
-          <div className="hidden md:block w-px bg-[#00000040] h-auto"></div>
+          <div className="hidden md:block w-px bg-[#000000] h-auto"></div>
 
           {/* Contact Info */}
-          <div className="space-y-4 text-center md:text-left">
-            <div className="space-y-2">
-              <h3 className="font-bold text-sm">Call Us:</h3>
-              <p className="text-sm font-medium">0112 69 69 420</p>
-              <p className="text-sm font-medium">0112 69 69 420</p>
-              <p className="text-sm font-medium">0112 69 69 420</p>
+          <div className="space-y-8 text-center md:text-left">
+            <div className="mt-3">
+              <h3 className="text-[18px] leading-[37px] text-black font-bold text-sm">Call Us:</h3>
+              <p className="text-[18px] leading-[46px] text-black text-sm font-400">0112 69 69 420</p>
+              <p className="text-[18px] leading-[46px] text-black text-sm font-400">0112 69 69 420</p>
+              <p className="text-[18px] leading-[46px] text-black text-sm font-400">0112 69 69 420</p>
             </div>
             <div>
-              <h3 className="font-bold text-sm">Email:</h3>
-              <p className="text-sm font-medium">info@shop.lk</p>
+              <h3 className="mt-1 text-[18px] leading-[37px] text-black font-bold text-sm">Email:</h3>
+              <p className="text-[18px] leading-[46px] text-black text-sm font-400">info@shop.lk</p>
             </div>
           </div>
         </div>
 
-        {/* Social Media Icons */}
-        <div className="flex justify-center md:justify-start space-x-6 mt-4 md:mt-0">
+        {/* Social Media Icons - Shown Only on Mobile */}
+        <div className="flex md:hidden justify-center space-x-6 mt-4">
           <a href="#" className="text-black">
             <img src="/images/FacebookBig.png" alt="Facebook" className="w-8 h-8" />
           </a>
