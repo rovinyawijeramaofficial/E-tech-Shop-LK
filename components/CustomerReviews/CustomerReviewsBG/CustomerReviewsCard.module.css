@@ -12,55 +12,100 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
+  gap: 1rem;
   width: 100%;
-  overflow: hidden;
-  padding: 0 3rem; /* Ensuring symmetry */
+  padding: 0 3rem;
+  position: relative;
+  height: 500px; /* Adjust as needed */
 }
 
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row for tablets */
+    gap: 1rem;
+    height: 400px;
   }
 }
 
 @media (max-width: 640px) {
   .grid {
-    grid-template-columns: repeat(1, 1fr); /* 1 per row on mobile */
+    gap: 0.5rem;
+    height: 300px;
   }
 }
 
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  padding: 1rem; /* Add some padding within the cell */
+}
+
 .card {
-  background: rgba(221, 206, 206, 0.2); /* Semi-transparent white */
+  background: rgba(221, 206, 206, 0.2);
   border-radius: 15px;
   box-shadow: none;
   padding: 1.5rem;
   transition: transform 0.5s ease, opacity 0.5s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 524px;
   height: 233px;
-  backdrop-filter: blur(10px); /* Glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-}
-
-
-/* First card in each row (Shift left slightly) */
-.hiddenLeft {
-  margin-left: -100px;
-}
-
-/* Fourth card in each row (More visibility without breaking layout) */
-.highlightFourth {
-  opacity: 1; /* Ensures full visibility */
-  z-index: 10; /* Brings it slightly forward */
-  transform: scale(1.05); /* Slightly larger without breaking grid */
+  opacity: 0.8;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjusted card positions based on yellow grid lines */
+.card:nth-child(1) {
+  transform: translate(-74px, 30px) scale(1.05);
+  opacity: 1;
+  z-index: 10;
+}
+
+.card:nth-child(2) {
+  transform: translate(60px, -20px);
+  opacity: 1;
+}
+
+.card:nth-child(3) {
+  transform: translate(-60px, -40px);
+}
+
+.card:nth-child(4) {
+  transform: translate(40px, 10px) scale(1.05);
+  opacity: 1;
+  z-index: 10;
+}
+
+.card:nth-child(5) {
+  transform: translate(-50px, 50px);
+}
+
+.card:nth-child(6) {
+  transform: translate(70px, 0px);
+}
+
+.card:nth-child(7) {
+  transform: translate(-30px, 60px);
+}
+
+.card:nth-child(8) {
+  transform: translate(50px, -20px) scale(1.05);
+  opacity: 1;
+  z-index: 10;
 }
 
 .rating {
@@ -82,7 +127,7 @@
   line-height: 29.12px;
   color: #000000;
   text-align: left;
-  width: 431px; /* Ensure consistent width */
+  width: 431px;
 }
 
 .author {
@@ -92,6 +137,5 @@
   line-height: 29.12px;
   color: #000000;
   text-align: left;
-  width: 431px; /* Ensuring proper alignment */
+  width: 431px;
 }
-
