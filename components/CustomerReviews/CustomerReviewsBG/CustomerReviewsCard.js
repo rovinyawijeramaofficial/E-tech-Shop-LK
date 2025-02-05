@@ -4,46 +4,14 @@ import Link from "next/link";
 
 export default function CustomerReviews() {
   const reviews = [
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
-    {
-      rating: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      author: "John Doe",
-    },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
+    { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
   ];
 
   return (
@@ -53,18 +21,16 @@ export default function CustomerReviews() {
         <div className={styles.grid}>
           {reviews.map((review, index) => (
             <Link key={index} href="/allreviews">
-              <div
-                className={`${styles.card} ${
-                  index % 4 === 0 ? styles.hiddenLeft : index % 4 === 3 ? styles.hiddenRight : ""
-                }`}
-              >
-                <div className={styles.rating}>
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <span key={i} className={styles.star}>&#9733;</span>
-                  ))}
+              <div className={styles['card-container']}>
+                <div className={styles.card}>
+                  <div className={styles.rating}>
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <span key={i} className={styles.star}>&#9733;</span>
+                    ))}
+                  </div>
+                  <p className={styles.text}>{review.text}</p>
+                  <p className={styles.author}>{review.author}</p>
                 </div>
-                <p className={styles.text}>{review.text}</p>
-                <p className={styles.author}>{review.author}</p>
               </div>
             </Link>
           ))}
