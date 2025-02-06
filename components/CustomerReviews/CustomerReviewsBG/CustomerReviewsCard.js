@@ -14,6 +14,7 @@ export default function CustomerReviews() {
     { rating: 5, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", author: "John Doe" },
   ];
 
+  
   return (
     <div className="hidden sm:block">
       <section className={styles.section}>
@@ -21,9 +22,13 @@ export default function CustomerReviews() {
         <div className={styles.grid}>
           {reviews.map((review, index) => (
             <Link key={index} href="/allreviews">
-              <div className={styles['card-container']}>
+              <div
+                className={`${styles['card-container']} ${
+                  index < 4 ? styles.firstRow : styles.secondRow
+                }`}
+              >
                 <div className={styles.card}>
-                  <div className={styles.rating}>
+                  <div className={`${styles.rating} mt-2`}>
                     {Array.from({ length: review.rating }).map((_, i) => (
                       <span key={i} className={styles.star}>&#9733;</span>
                     ))}
