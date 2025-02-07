@@ -1,26 +1,36 @@
 import Image from "next/image";
 
-export default function FeaturedProductCard() {
+export default function DiscountBanner() {
   return (
     <>
       {/* Desktop View */}
-      <div className="relative hidden md:flex w-full h-48 bg-orange-500 items-center">
-        <div className="absolute left-8 top-1/2 transform -translate-y-1/2">
-          <h2 className="text-white text-3xl font-bold mb-2">Get Up to</h2>
-          <h2 className="text-white text-5xl font-bold">50% Off</h2>
-          <p className="text-white text-2xl">on Selected Items</p>
-        </div>
-        <div className="absolute right-8 top-1/2 transform -translate-y-1/2 border-4 border-orange-500 rounded-lg overflow-hidden w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
+      <div className="relative hidden md:flex w-full h-[414px] bg-orange-600 items-center">
+        {/* Background Container */}
+<div className="absolute left-[81px] w-[779px] h-[299px] rounded-[20px] bg-white bg-opacity-30 backdrop-blur-[44px] p-6 flex flex-col justify-center z-10">
+  <h2 className="text-white text-[47.12px] font-normal leading-[55.04px] mb-2 font-[Poppins]">
+    Get Up to
+  </h2>
+  <h2 className="text-white text-[47.12px] font-semibold leading-[55.04px] font-[Poppins]">
+    50% Off
+  </h2>
+  <p className="text-white text-[47.12px] font-normal leading-[55.04px] font-[Poppins]">
+    on Selected Items
+  </p>
+</div>
+
+        {/* Image Container */}
+        <div className="absolute right-0 w-[55%] h-[414px] overflow-hidden z-0">
           <Image
             src="/images/image 1.png"
             alt="Promotional Phone"
             layout="fill"
             objectFit="cover"
+            className="w-full h-full"
           />
         </div>
       </div>
 
-      {/* Mobile View - Larger Image & Overlay */}
+      {/* Mobile View */}
       <div className="relative flex md:hidden w-full h-96">
         {/* Background Image */}
         <Image
@@ -30,9 +40,6 @@ export default function FeaturedProductCard() {
           objectFit="cover"
           className="absolute inset-0 w-full h-full"
         />
-
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
 
         {/* Text Section */}
         <div className="absolute bottom-4 left-4 right-4 bg-white/30 backdrop-blur-lg p-4 rounded-xl text-center">
