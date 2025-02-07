@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
-import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
+import Footer from "@/components/Footer";
 import Roadmap from "../components/Roadmap/Roadmap";
 import OurTeam from "../components/OurTeam/Team";
 
