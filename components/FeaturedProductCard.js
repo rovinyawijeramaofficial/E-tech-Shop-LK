@@ -144,14 +144,6 @@ export function RelatedProduct() {
         ))}
       </div>
 
-      {/* View More Button */}
-      <div className="mt-6 flex justify-center">
-        <a href="/shopping" passHref>
-          <button className="bg-white border border-black py-2 px-6 rounded-md font-semibold text-black hover:bg-black hover:text-white transition">
-            View More
-          </button>
-        </a>
-      </div>
     </div>
   );
 }
