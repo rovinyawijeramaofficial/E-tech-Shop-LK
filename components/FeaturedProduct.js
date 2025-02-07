@@ -73,13 +73,14 @@ export default function FeaturedProduct() {
             </div>  
           ))}
           <div className="flex justify-center mt-6">
-            <button
-              onClick={() => router.push("/shopping")}
-              className="-mt-3 bg-white border border-gray-300 py-2 px-5 rounded-[25px] w-[152.26px] h-[35.07px] text-[12.67px] font-poppins font-light text-black hover:bg-gray-200 transition"
-            >
-              View More
-            </button>
-          </div>
+  <button
+    onClick={() => router.push("/shopping")}
+    className="-mt-3 bg-white border border-gray-300 py-2 px-5 rounded-[25px] w-[152.26px] h-[40px] text-[20px] font-poppins font-bold hover:bg-gray-200 transition"
+  >
+    View More
+  </button>
+</div>
+
         </div>
       ) : (
         <div className="relative">
@@ -118,15 +119,12 @@ export default function FeaturedProduct() {
 >
   <img src="/images/IncludeBig.png" alt="Right Arrow" width={62} height={62} />
 </button>
-
-
-
-          <div className="custom-pagination mt-3 flex justify-center"></div>
+    
 
           <div className="flex justify-center mt-6">
             <button
               onClick={() => router.push("/shopping")}
-              className="bg-white border border-gray-400 py-2 px-5 rounded-[25px] w-[160px] h-[40px] text-[12px] font-poppins font-light text-black hover:bg-gray-200 transition"
+              className="mt-4 bg-white border border-gray-400 py-2 px-5 rounded-[25px] w-[160px] h-[40px] text-[15px] font-poppins font-light text-black hover:bg-gray-200 transition"
             >
               View More
             </button>
