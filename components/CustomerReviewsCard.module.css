@@ -1,0 +1,114 @@
+.section {
+  padding: 6rem 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows, adaptive height */
+  gap: 0.75rem; /* Proper spacing between cards */
+  width: 100%;
+  padding: 0 3rem;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+    grid-template-rows: repeat(4, auto);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr); /* Switch to single column */
+    grid-template-rows: repeat(8, auto);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 First row shifted slightly left */
+.firstRow {
+  transform: translateX(-70px);
+}
+
+/* 🔹 Second row shifted slightly right */
+.secondRow {
+  transform: translateX(-165px) translateY(0px);
+}
+
+.card {
+  background: rgba(221, 206, 206, 0.2);
+  border-radius: 15px;
+  padding: 0.47rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px) ; /* Stronger glass effect */
+  -webkit-backdrop-filter: blur(10px) ;
+  width: 100%;
+  max-width: 500px;
+  height: 220px;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: flex-start; /* Align stars to the left */
+  width: 100%;
+  
+}
+
+.star {
+  color: #000000;
+  font-size: 1.32rem;
+  margin-right: 0.2rem;
+}
+
+.text {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 29.12px;
+  color: #000000;
+  text-align: left;
+  width: 431px;
+}
+
+.author {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  line-height: 29.12px;
+  color: #000000;
+  text-align: left;
+  width: 431px;
+}
