@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Footer from "@/components/CustomerReviews/CustomerReviewsBG/Footer";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { useRouter } from "next/router";
