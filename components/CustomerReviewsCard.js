@@ -16,9 +16,10 @@ export default function CustomerReviews() {
 
   
   return (
-    <div className="hidden sm:block">
+    <div
+  className="hidden sm:block bg-[rgb(244, 241, 241)] ">
       <section className={styles.section}>
-        <h2 className={`${styles.heading} -mt-28`}>Customer Reviews</h2>
+        <h2 className={`${styles.heading} -mt-20`}>Customer Reviews</h2>
         <div className={styles.grid}>
           {reviews.map((review, index) => (
             <Link key={index} href="/allreviews">
@@ -27,13 +28,13 @@ export default function CustomerReviews() {
                   index < 4 ? styles.firstRow : styles.secondRow
                 }`}
               >
-                <div className={styles.card}>
-                  <div className={`${styles.rating} mt-2`}>
+                <div className={`${styles.card} mt-5`}>
+                  <div className={`${styles.rating} mt-5`}>
                     {Array.from({ length: review.rating }).map((_, i) => (
                       <span key={i} className={styles.star}>&#9733;</span>
                     ))}
                   </div>
-                  <p className={styles.text}>{review.text}</p>
+                  <p className={`${styles.text} -mt-3`}>{review.text}</p>
                   <p className={styles.author}>{review.author}</p>
                 </div>
               </div>
