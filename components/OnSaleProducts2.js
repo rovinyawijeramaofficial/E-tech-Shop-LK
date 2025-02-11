@@ -50,36 +50,37 @@ export default function FeaturedProduct() {
   ];
 
   return (
-    <div className=" hidden md:block p-4 sm:p-6 md:p-8 bg-gray-100">
-      {/* Header Section */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="mt-10 font-poppins font-semibold text-[24px] sm:text-[28px] text-black leading-[1.2]">
-          On Sale Products
-        </h2>
-      </div>
-
-      {/* Swiper Section */}
-      <div className="relative">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          navigation={{ prevEl: ".custom-prev", nextEl: ".custom-next" }}
-          pagination={{ el: ".custom-pagination", clickable: true }}
-          spaceBetween={8}
-          slidesPerView={1}
-          breakpoints={{
-            430: { slidesPerView: 1.5, spaceBetween: 12 },
-            640: { slidesPerView: 2, spaceBetween: 16 },
-            1024: { slidesPerView: 4, spaceBetween: 24 },
-          }}
-        >
-          {products.map((product) => (
-            <SwiperSlide key={product.id}>
-              <FeaturedProductCard product={product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+    <div className="hidden md:block p-4 sm:p-6 md:p-8 bg-[rgb(244, 241, 241)] rounded-lg">
+    {/* Header Section */}
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="mt-8 font-poppins font-semibold text-[24px] sm:text-[28px] text-black leading-[1.2]">
+        On Sale Products
+      </h2>
     </div>
+
+  {/* Swiper Section */}
+  <div className="relative">
+    <Swiper
+      modules={[Navigation, Pagination]}
+      navigation={{ prevEl: ".custom-prev", nextEl: ".custom-next" }}
+      pagination={{ el: ".custom-pagination", clickable: true }}
+      spaceBetween={8}
+      slidesPerView={1}
+      breakpoints={{
+        430: { slidesPerView: 1.5, spaceBetween: 12 },
+        640: { slidesPerView: 2, spaceBetween: 16 },
+        1024: { slidesPerView: 4, spaceBetween: 24 },
+      }}
+    >
+      {products.map((product) => (
+        <SwiperSlide key={product.id}>
+          <FeaturedProductCard product={product} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+
+</div>
   );
 }
 
