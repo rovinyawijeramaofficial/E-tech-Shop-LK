@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import FeaturedProductCard from "./FeaturedProductCard";
+import { useRouter } from "next/router";
 
 export default function FeaturedProduct() {
   const products = [
@@ -49,8 +50,10 @@ export default function FeaturedProduct() {
     },
   ];
 
+  const router = useRouter(); // <-- Call the useRouter hook here
+  
   return (
-    <div className="hidden md:block p-4 sm:p-6 md:p-8 bg-gray-100">
+    <div className="hidden md:block p-4 sm:p-6 md:p-8 bg-[rgb(244, 241, 241)] rounded-lg">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-poppins font-semibold text-[24px] sm:text-[28px] text-black leading-[1.2]">
@@ -80,11 +83,11 @@ export default function FeaturedProduct() {
         </Swiper>
       </div>
 
-      {/* View More Button */}
-      <div className="flex justify-center mt-6">
+     {/* View More Button */}
+     <div className="flex justify-center -mt-2">
             <button
               onClick={() => router.push("/shopping")}
-              className="mt-4 bg-white border border-gray-400 py-2 px-5 rounded-[25px] w-[160px] h-[40px] text-[15px] font-poppins font-light text-black hover:bg-gray-200 transition"
+              className="mt-4 bg-white border border-gray-400 py-2 px-5 rounded-[35.19px] w-[152.26px] h-[35.07px] text-[12.67px] font-poppins font-light text-black hover:bg-gray-200 transition"
             >
               View More
             </button>
