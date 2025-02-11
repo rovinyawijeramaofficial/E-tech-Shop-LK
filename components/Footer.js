@@ -36,10 +36,9 @@ const Footer = () => {
   <p className="text-[18px] font-400 leading-[27px] text-black w-[255px] h-[27px] mx-auto md:mx-0">
     Copyright (C) 2022 | Shop/lk
   </p>
-</div>
 
-{/* Social Media */}
-<div className="flex md:hidden justify-center space-x-6 mt-4">
+  {/* Social Media */}
+<div className="flex justify-center md:justify-start space-x-6 mt-4">
           <a href="#" className="text-black">
             <img src="/images/FacebookBig.png" alt="Facebook" className="w-8 h-8" />
           </a>
@@ -53,6 +52,7 @@ const Footer = () => {
             <img src="/images/LinkedInBig.png" alt="LinkedIn" className="w-8 h-8" />
           </a>
         </div>
+</div>
 
       {/* Horizontal Line */}
 <hr className="my-12 border-t-[0.6px] border-black w-[123.65px] mx-auto md:hidden" />
