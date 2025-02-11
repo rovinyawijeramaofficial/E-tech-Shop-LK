@@ -57,7 +57,7 @@ export default function SmartDevices() {
   };
 
   return (
-    <div className="p-4 bg-gray-100" style={{ marginTop: "-70px" }}>
+    <div className="p-4 bg-[rgb(244, 241, 241)] rounded-lg" style={{ marginTop: "-70px" }}>
       {/* DESKTOP VIEW */}
       {!isMobile && (
         <div className="relative flex items-center justify-center">
