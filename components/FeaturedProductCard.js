@@ -13,7 +13,7 @@ export default function FeaturedProductCard({ product = {} }) {
 
   return (
     <div
-    className="bg-white rounded-[15px] shadow-lg flex-shrink-0  p-4 relative"
+    className="bg-white rounded-[15px] shadow-lg flex-shrink-0  p-4 relative "
     style={{ boxShadow: "5px 5px 20px rgba(0, 0, 0, 0.1)" }}
   >
       {/* Product Image */}
@@ -127,7 +127,7 @@ export function RelatedProduct() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 mt-10">
+    <div className="p-4 sm:p-6 mt-10 ">
       {/* Header Section */}
       <div className="flex justify-center items-center mb-6">
         <h2 className="font-poppins font-semibold text-[24px] text-center text-black">
