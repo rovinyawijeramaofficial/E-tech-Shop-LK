@@ -34,7 +34,7 @@ export default function FeaturedProduct() {
   const products = isMobile ? allProducts.slice(0, 3) : allProducts;
 
   return (
-    <div className="p-4 sm:p-6 md:p-10 bg-gray-100">
+    <div className="p-4 sm:p-6 md:p-10 bg-[rgb(244, 241, 241)] rounded-lg">
       <div className="flex justify-between items-center mb-6 mt-9">
         <h2 className="font-poppins font-semibold text-[29.12px] sm:text-[28px] text-black leading-[1.2]">
           Featured Product
@@ -72,14 +72,16 @@ export default function FeaturedProduct() {
               </div>
             </div>  
           ))}
-          <div className="flex justify-center mt-6">
-  <button
-    onClick={() => router.push("/shopping")}
-    className="-mt-3 bg-white border border-gray-300 py-2 px-5 rounded-[25px] w-[152.26px] h-[40px] text-[20px] font-poppins font-bold hover:bg-gray-200 transition"
-  >
-    View More
-  </button>
-</div>
+    
+    <div className="flex justify-center -mt-2">
+            <button
+              onClick={() => router.push("/shopping")}
+              className="mt-4 bg-white border border-gray-400 py-2 px-5 rounded-[35.19px] w-[152.26px] h-[35.07px] text-[12.67px] font-poppins font-light text-black hover:bg-gray-200 transition"
+            >
+              View More
+            </button>
+          </div>
+
 
         </div>
       ) : (
