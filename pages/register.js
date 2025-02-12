@@ -19,76 +19,118 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-white">
-      {/* Left Section */}
-      <div className="w-full md:w-1/2 p-8 md:p-16 space-y-8">
-        <h1 className="text-3xl font-bold">Register</h1>
-        <p className="text-gray-600">Please choose your account type to continue</p>
+    <div className="min-h-screen bg-white">
+      {/* Desktop View */}
+      <div className="hidden md:flex flex-col md:flex-row items-center justify-center">
+        {/* Left Section */}
+        <div className="w-1/2 p-16 space-y-8">
+          <h1 className="font-poppins font-bold text-[29.12px] text-black">Register</h1>
+          <p className="font-poppins text-[18px] text-black">Please choose your account type to continue</p>
+
+          {/* Account Type Options */}
+          <div className="space-y-4">
+            <div
+              onClick={() => handleSelectAccount("personal")}
+              className={`rounded-[15px] p-6 flex items-center justify-between cursor-pointer transition-colors duration-300 border-[1px] bg-white hover:border-gray-400 ${
+                selectedAccount === "personal" ? "border-black bg-gray-100" : "border-gray-300"
+              }`}
+              style={{ width: "569px", height: "147px", boxShadow: "5px 5px 24px 0px rgba(0, 0, 0, 0.22)" }}
+            >
+              <h2 className="font-poppins font-medium text-[23.54px] text-black">Personal Account</h2>
+              <p className="font-poppins text-[14.16px] text-gray-600 text-right w-[273px]">
+                Get exclusive discount and shipping rates
+              </p>
+            </div>
+
+            <div
+              onClick={() => handleSelectAccount("business")}
+              className={`rounded-[15px] p-6 flex items-center justify-between cursor-pointer transition-colors duration-300 border-[1px] bg-white hover:border-gray-400 ${
+                selectedAccount === "business" ? "border-black bg-gray-100" : "border-gray-300"
+              }`}
+              style={{ width: "569px", height: "147px", boxShadow: "5px 5px 24px 0px rgba(0, 0, 0, 0.22)" }}
+            >
+              <h2 className="font-poppins font-medium text-[23.54px] text-black">Business Account</h2>
+              <p className="font-poppins text-[14.16px] text-gray-600 text-right w-[273px]">
+                Get the best prices when you're buying wholesale. Business Registration verification required.
+              </p>
+            </div>
+          </div>
+
+          {/* Next Button */}
+          <button onClick={handleNextClick} className="w-[569px] h-[69px] bg-black text-white py-3 rounded-[5px] font-semibold hover:bg-gray-800 transition">
+            Next
+          </button>
+
+          {/* Login Button */}
+          <button>
+          <div className="text-center">
+            <p className="text-sm text-gray-600">Already have an account?</p>
+            <Link href="/login">
+              <button className="mt-2 w-[569px] h-[69px] bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-300 transition border-[1px] border-black">
+                Log In
+              </button>
+            </Link>
+          </div>
+          </button>
+
+          <br/><br/>
+
+          {/* Return to Homepage Link */}
+          <Link href="/" className="block text-sm text-black underline hover:text-gray-700 transition">
+            &lt;&lt; Return to Homepage
+          </Link>
+        </div>
+
+        {/* Right Section */}
+        <div className="items-center justify-center ">
+          <img src="/images/dell-unsplash 2.png" alt="Tablet showing colorful screen" className="w-[960px] h-[920px] shadow-md" style={{ borderBottomLeftRadius: "110px" }} />
+        </div>
+      </div>
+
+
+      {/* Mobile View */}
+      <div className="md:hidden flex flex-col items-center px-6 py-10 space-y-6">
+        <h1 className="text-2xl font-bold text-black">Register</h1>
+        <p className="text-lg text-black text-center">Please choose your account type to continue</p>
 
         {/* Account Type Options */}
-        <div className="space-y-4">
-          <div
+        <div className="space-y-4 w-full max-w-xs">
+          <button
             onClick={() => handleSelectAccount("personal")}
-            className={`border rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2 ${
-              selectedAccount === "personal" ? "border-black bg-gray-100" : "border-gray-300"
-            }`}
+            className={`w-full p-4 rounded-lg border ${selectedAccount === "personal" ? "border-black bg-gray-100" : "border-gray-300"}`}
           >
-            <h2 className="text-lg font-semibold">Personal Account</h2>
-            <p className="text-sm text-gray-500">
-              Get exclusive discount and shipping rates
-            </p>
-          </div>
-          <div
+            <h2 className="text-lg font-medium text-black">Personal Account</h2>
+            <p className="text-sm text-gray-600">Get exclusive discount and shipping rates</p>
+          </button>
+
+          <button
             onClick={() => handleSelectAccount("business")}
-            className={`border rounded-lg p-6 shadow-sm hover:shadow-md cursor-pointer flex flex-col space-y-2 ${
-              selectedAccount === "business" ? "border-black bg-gray-100" : "border-gray-300"
-            }`}
+            className={`w-full p-4 rounded-lg border ${selectedAccount === "business" ? "border-black bg-gray-100" : "border-gray-300"}`}
           >
-            <h2 className="text-lg font-semibold">Business Account</h2>
-            <p className="text-sm text-gray-500">
-              Get the best prices when you're buying wholesale. Business
-              Registration verification required.
-            </p>
-          </div>
+            <h2 className="text-lg font-medium text-black">Business Account</h2>
+            <p className="text-sm text-gray-600">Get the best prices when you're buying wholesale.</p>
+          </button>
         </div>
 
         {/* Next Button */}
-        <button
-          onClick={handleNextClick}
-          className="w-full bg-black text-white py-3 rounded-lg text-center font-semibold hover:bg-gray-800 transition"
-        >
+        <button onClick={handleNextClick} className="w-full max-w-xs py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition">
           Next
         </button>
 
         {/* Login Button */}
         <div className="text-center">
-          <p className="text-sm text-black-500">Already have an account?</p>
+          <p className="text-sm text-gray-600">Already have an account?</p>
           <Link href="/login">
-            <button className="mt-2 w-full bg-white-200 text-black py-3 rounded-lg font-semibold hover:bg-gray-300 transition border border-[#000000]">
+            <button className="mt-2 w-full max-w-xs py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-300 transition border border-black">
               Log In
             </button>
           </Link>
         </div>
 
-        {/* Spacer to push the link further down */}
-        <div className="mt-12"></div>
-
         {/* Return to Homepage Link */}
-        <Link
-          href="/"
-          className="block text-sm text-gray-500 underline hover:text-gray-700 transition"
-        >
+        <Link href="/" className="text-sm text-black underline hover:text-gray-700 transition">
           &lt;&lt; Return to Homepage
         </Link>
-      </div>
-
-      {/* Right Section */}
-      <div className="hidden md:flex md:w-1/2 items-center justify-center p-8">
-        <img
-          src="/images/dell-unsplash 2.png"
-          alt="Tablet showing colorful screen"
-          className="w-[960px] left-[1920px] rounded-lg shadow-md"
-        />
       </div>
     </div>
   );
