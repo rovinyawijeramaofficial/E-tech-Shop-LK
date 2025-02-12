@@ -100,7 +100,7 @@ const RegisterForm = () => {
       </div>
 
       {/* Mobile View (Hidden on Desktop) */}
-<div className="md:hidden flex flex-col items-center px-6 space-y-6">
+<div className="md:hidden mt-12 flex flex-col items-center px-6 space-y-6">
   <h2 className="text-xl font-bold text-black mb-3">Register</h2>
   <p className="text-xs text-gray-700 mb-4 text-center">
     Please log in to continue to use shop/lk
