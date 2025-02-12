@@ -91,9 +91,12 @@ const RegisterForm = () => {
             &lt;&lt; Return to Homepage
           </Link>
         </div>
-        <div className="hidden md:block shadow-md items-center justify-center">
-          <img src="/images/dell-unsplash 2.png" alt="Tablet showing colorful screen" className="w-[800px] h-[920px] shadow-md" style={{ borderBottomLeftRadius: "110px" }} />
+        
+        {/* Right Section */}
+        <div className="items-center justify-center ">
+          <img src="/images/dell-unsplash 2.png" alt="Tablet showing colorful screen" className="w-auto h-[920px] shadow-md" style={{ borderBottomLeftRadius: "110px" }} />
         </div>
+   
       </div>
 
       {/* Mobile View (Hidden on Desktop) */}
