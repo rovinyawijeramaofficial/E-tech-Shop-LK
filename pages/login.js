@@ -110,69 +110,64 @@ const Login = () => {
         }}
       ></div>
 
-      {/* Mobile View (Hidden on Desktop) */}
-<div className="flex md:hidden flex-col items-center justify-center w-full h-screen bg-white">
-  <h2 className="font-bold text-2xl text-black mb-2 -mt-60">Log In</h2>
-  <p className="text-base text-black text-center mb-4">
-    Please log in to continue
-  </p>
+{/* Mobile View (Hidden on Desktop) */}
+<div className="-mt-60 flex md:hidden flex-col items-center justify-center w-full px-6 space-y-6 py-10">
+  <h2 className="font-bold text-2xl text-black">Log In</h2>
+  <p className="text-sm text-gray-600 text-center">Please log in to continue</p>
 
   <form className="w-full max-w-[320px]" onSubmit={handleLogin}>
     {/* Email Field */}
-    <div className="mb-3">
-      <label htmlFor="email" className="text-sm text-black block mb-1">
+    <div className="mb-4">
+      <label htmlFor="email" className="text-sm text-gray-700 block mb-1">
         Email or Username
       </label>
       <input
         type="text"
         id="email"
-        placeholder="Enter your email or username"
-        className="w-full h-10 p-2 rounded border border-black"
+        className="w-full h-11 p-3 rounded-md border border-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
       />
     </div>
 
     {/* Password Field with Forget Password */}
-    <div className="mb-3">
+    <div className="mb-4">
       <div className="flex items-center justify-between">
-        <label htmlFor="password" className="text-sm text-black">
+        <label htmlFor="password" className="text-sm text-gray-700">
           Password
         </label>
-        <a href="#" className="text-gray-400 text-xs">
-          Forget Password?
+        <a href="#" className="text-primary-600 text-xs hover:text-primary-800 transition duration-300">
+          Forgot Password?
         </a>
       </div>
       <input
         type="password"
         id="password"
-        placeholder="Enter your password"
-        className="w-full h-10 p-2 rounded border border-black"
+        className="w-full h-11 p-3 rounded-md border border-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
       />
     </div>
 
     {/* Login Button */}
     <button
       type="submit"
-      className="w-full h-10 bg-black text-white rounded font-semibold text-sm mb-3"
+      className="w-full h-11 bg-black text-white rounded-md font-semibold text-sm hover:bg-gray-800 transition duration-300 active:scale-95"
     >
       Log In
     </button>
 
     {/* Create Account */}
-    <p className="text-xs text-center opacity-60 mb-2">
-      Don’t have an account?
-    </p>
+    <p className="text-xs text-center opacity-70 mt-4">Don’t have an account?</p>
     <Link href="/register">
-      <button className="w-full h-10 bg-white text-black border border-black rounded font-semibold text-sm">
+      <button className="w-full h-11 bg-white text-black border border-black rounded-md font-semibold text-sm hover:bg-gray-100 transition duration-300">
         Create a New Account
       </button>
     </Link>
   </form>
 
   {/* Return to Homepage */}
-  <Link href="/" className="text-xs text-black underline mt-6">
+  <Link href="/" className="text-xs text-black underline mt-6 hover:text-gray-700">
     &lt;&lt; Return to Homepage
   </Link>
 </div>
+
 
     </div>
   );
