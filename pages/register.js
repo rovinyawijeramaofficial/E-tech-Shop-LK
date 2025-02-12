@@ -73,7 +73,7 @@ const Register = () => {
           </div>
           </button>
 
-          <br/><br/>
+          <br/><br/><br/><br/>
 
           {/* Return to Homepage Link */}
           <Link href="/" className="block text-sm text-black underline hover:text-gray-700 transition">
