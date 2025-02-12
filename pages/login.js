@@ -7,110 +7,171 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    router.push('/home');
+    router.push("/home");
   };
 
   return (
-    <div
-      style={{ display: "flex", height: "100vh", fontFamily: "Arial, sans-serif" }}
-    >
-      {/* Left Section */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff",
-          padding: "20px",
-        }}
-      >
-        <h2 style={{ marginBottom: "20px" }}>Log In</h2>
-        <p style={{ marginBottom: "40px", color: "#555" }}>
-          Please log in to continue to use <b>shopBiz</b>.
+    <div className="flex h-screen font-poppins">
+      {/* Desktop View (Hidden on Mobile) */}
+      <div className="hidden md:flex flex-1 flex-col justify-center ml-[103px] bg-white p-5">
+
+      <br/><br/> <br/><br/> <br/><br/> <br/><br/> 
+
+        <h2 className="font-bold text-[29.12px] leading-[47.08px] text-black mb-5">
+          Log In
+        </h2>
+        <p className="text-[18px] leading-[29.12px] text-black w-[393px] h-[30px] mb-5">
+          Please log in to continue to use shop/lk
         </p>
-        <form style={{ width: "100%", maxWidth: "300px" }} onSubmit={handleLogin}>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="email" style={{ display: "block", marginBottom: "8px" }}>
+
+        <form className="max-w-[300px]" onSubmit={handleLogin}>
+          {/* Email Field */}
+          <div className="mb-5">
+            <label
+              htmlFor="email"
+              className="text-[18px] leading-[29.12px] text-black block"
+            >
               Email or Username
             </label>
             <input
               type="text"
               id="email"
               placeholder="Enter your email or username"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-              }}
+              className="w-[569px] h-[58px] p-3 rounded-[5px] border border-black"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="password" style={{ display: "block", marginBottom: "8px" }}>
-              Password
-            </label>
+
+          {/* Password Field with Forget Password */}
+          <div className="mb-5">
+            <div className="flex items-center justify-between w-[569px]">
+              <label htmlFor="password" className="text-[18px] text-black">
+                Password
+              </label>
+              <a
+                href="#"
+                className="text-gray-400 text-[16px] leading-[29.12px] no-underline"
+                style={{ fontWeight: 275 }}
+              >
+                Forget Password?
+              </a>
+            </div>
             <input
               type="password"
               id="password"
               placeholder="Enter your password"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-              }}
+              className="w-[569px] h-[58px] p-3 rounded-[5px] border border-black"
             />
-            <div style={{ textAlign: "right", marginTop: "8px" }}>
-              <a
-                href="#"
-                style={{
-                  color: "#007BFF",
-                  fontSize: "14px",
-                  textDecoration: "none",
-                }}
-              >
-                Forgot Password?
-              </a>
-            </div>
           </div>
+
+          {/* Login Button */}
           <button
             type="submit"
-            style={{
-              width: "100%",
-              padding: "10px",
-              backgroundColor: "#000",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              marginBottom: "20px",
-            }}
+            className="w-[569px] h-[69px] bg-black text-white rounded-[5px] font-semibold text-[18px] leading-[29.12px] mb-5"
           >
             Log In
           </button>
-        </form>
-        <p style={{ color: "#555", fontSize: "14px" }}>
-          Don’t have an account?{" "}
-          <Link href="/register" style={{ color: "#007BFF", textDecoration: "none" }}>
-            Create a New Account
+
+          <br/><br/>
+
+          {/* Create Account */}
+          <p
+  className="font-poppins text-[16px]-300 leading-[29.12px] text-center"
+  style={{
+    width: '393px',
+    height: '30px',
+    marginLeft:'80px',
+    opacity: 0.6, // For the 60% black color
+  }}
+>
+  Don’t have an account?
+</p>
+          <Link href="/register">
+            <button className="w-[569px] h-[69px] bg-white text-black border border-black rounded-[5px] font-semibold text-[18px] leading-[29.12px]">
+              Create a New Account
+            </button>
           </Link>
-        </p>
-        <Link href="/home" style={{ marginTop: "20px", color: "#007BFF", fontSize: "14px" }}>
+        </form>
+
+        {/* Return to Homepage */}
+        <Link href="/" className="block text-sm text-black underline mt-40">
           &lt;&lt; Return to Homepage
         </Link>
       </div>
 
-{/* Right Section */}
-<div className="hidden md:flex md:w-1/2 items-center justify-center p-8">
-  <div className="relative" style={{ width: '960px', height: '1080px',  }}>
-    <img
-      src="/images/dell-unsplash 1.png"
-      alt="Tablet showing colorful screen"
-      className="rounded-bl-[110px] object-cover w-full h-full"
-    />
-  </div>
+      {/* Right Section (Desktop Only) */}
+      <div
+        className="hidden md:block w-[860px] h-[920px] shadow-md"
+        style={{
+          borderBottomLeftRadius: "110px",
+          backgroundImage: "url('/images/dell-unsplash 1.png')",
+          backgroundSize: "210%",
+          backgroundPosition: "right -380px top",
+          zIndex: "-1",
+        }}
+      ></div>
+
+      {/* Mobile View (Hidden on Desktop) */}
+<div className="flex md:hidden flex-col items-center justify-center w-full h-screen bg-white">
+  <h2 className="font-bold text-2xl text-black mb-2 -mt-60">Log In</h2>
+  <p className="text-base text-black text-center mb-4">
+    Please log in to continue
+  </p>
+
+  <form className="w-full max-w-[320px]" onSubmit={handleLogin}>
+    {/* Email Field */}
+    <div className="mb-3">
+      <label htmlFor="email" className="text-sm text-black block mb-1">
+        Email or Username
+      </label>
+      <input
+        type="text"
+        id="email"
+        placeholder="Enter your email or username"
+        className="w-full h-10 p-2 rounded border border-black"
+      />
+    </div>
+
+    {/* Password Field with Forget Password */}
+    <div className="mb-3">
+      <div className="flex items-center justify-between">
+        <label htmlFor="password" className="text-sm text-black">
+          Password
+        </label>
+        <a href="#" className="text-gray-400 text-xs">
+          Forget Password?
+        </a>
+      </div>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        className="w-full h-10 p-2 rounded border border-black"
+      />
+    </div>
+
+    {/* Login Button */}
+    <button
+      type="submit"
+      className="w-full h-10 bg-black text-white rounded font-semibold text-sm mb-3"
+    >
+      Log In
+    </button>
+
+    {/* Create Account */}
+    <p className="text-xs text-center opacity-60 mb-2">
+      Don’t have an account?
+    </p>
+    <Link href="/register">
+      <button className="w-full h-10 bg-white text-black border border-black rounded font-semibold text-sm">
+        Create a New Account
+      </button>
+    </Link>
+  </form>
+
+  {/* Return to Homepage */}
+  <Link href="/" className="text-xs text-black underline mt-6">
+    &lt;&lt; Return to Homepage
+  </Link>
 </div>
 
     </div>
