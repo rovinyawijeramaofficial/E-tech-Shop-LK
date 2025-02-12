@@ -83,7 +83,7 @@ const Register = () => {
 
         {/* Right Section */}
         <div className="items-center justify-center ">
-          <img src="/images/dell-unsplash 2.png" alt="Tablet showing colorful screen" className="w-[960px] h-[920px] shadow-md" style={{ borderBottomLeftRadius: "110px" }} />
+          <img src="/images/dell-unsplash 2.png" alt="Tablet showing colorful screen" className="w-[960px] h-[980px] shadow-md" style={{ borderBottomLeftRadius: "110px" }} />
         </div>
       </div>
 
