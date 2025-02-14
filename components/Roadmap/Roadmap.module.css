@@ -5,24 +5,28 @@
   }
   
   .title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #000;
+    font-family: 'Poppins'; /* Use Poppins font */
+    font-weight: 600; /* Medium weight (600) */
+    font-size: 47.12px; /* 47.12px size */
+    line-height: 76.18px; /* 76.18px line height */
+    width: 238px; /* 238px width */
+    height: 77px; /* 77px height */
+    color: #000; /* Black color */
   }
   
   .timeline {
     position: relative;
     margin: 50px auto;
-    width: 80%;
+    width: 90%; 
   }
   
   .timeline::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 14rex;
+    bottom: 14rex;
     left: 50%;
-    width: 2px;
+    width: 5px;
     background-color: #000;
   }
   
@@ -33,7 +37,7 @@
     margin-bottom: 40px;
     background-color: #222;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 20px;
   }
   
   .timelineItem.left {
@@ -48,12 +52,20 @@
   
   .subHeadline {
     font-size: 1.5rem;
+    margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
   .description {
-    font-size: 1rem;
-    line-height: 1.5;
+    height: 117px;
+    font-size: 17.51px;
+    font-weight: 300;
+    font-family: 'poppins';
+    line-height: 25.5px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
   .timelineItem::before {
@@ -61,18 +73,18 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    width: 22px;
+    height: 22px;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 5px solid #000;
     border-radius: 50%;
   }
   
   .timelineItem.left::before {
-    right: -65px;
+    right: -86px;
   }
   
   .timelineItem.right::before {
-    left: -65px;
+    left: -78px;
   }
   
