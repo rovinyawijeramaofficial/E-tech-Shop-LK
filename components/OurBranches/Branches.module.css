@@ -1,0 +1,89 @@
+
+/* Title */
+.branchesTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 47.12px;
+  line-height: 76.18px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.branchesContainer {
+  width: 510px; /* Updated width */
+  height: 697px; /* Updated height */
+  background-color: #FFFFFF; /* Updated background color to white */
+  border-radius: 20px; /* Updated border radius */
+  box-shadow: 10px 10px 34px 0px rgba(0, 0, 0, 0.17); /* Updated box shadow */
+  position: absolute; /* Needed for positioning */
+  left: 30px; /* Updated left position */
+}
+/* Branches List */
+.branchesList {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Adjusted gap */
+}
+
+/* Individual Branch Item */
+.branchItem {
+  display: flex;
+  align-items: flex-start; /* Align items to top */
+  padding-bottom: 20px; /* Add bottom padding for spacing */
+  border-bottom: 1px solid #000; /* Add separator line */
+  width: 419px; /* Set the width of the border */
+  margin: 0 auto; /* Center the item */
+}
+
+/* Branch Details */
+.branchDetails {
+  flex-grow: 1;
+  margin-left: 20px; /* Space between icon and details */
+}
+
+.branchName {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 25.5px;
+  line-height: 41.22px;
+  color: #000;
+  width: auto; /* Allow name to take its natural width */
+  height: auto; /* Allow name to take its natural height */
+  margin-bottom: 5px; /* Add margin between name and address */
+}
+
+.branchAddress {
+  font-family: 'Poppins';
+  font-weight: 300;
+  font-size: 17.51px;
+  line-height: 25.5px;
+  color: #000;
+  width: auto; /* Allow address to take its natural width */
+  height: auto; /* Allow address to take its natural height */
+}
+
+/* Branch Icon */
+.branchIcon {
+  width: 49px;
+  height: 49px;
+}
+
+.branchIcon img {
+  width: 100%; /* Make image fill the container */
+  height: 100%; /* Make image fill the container */
+}
+
+.googleMapsLink {
+  font-family: 'Poppins'; /* Poppins font */
+  font-weight: 500; /* Medium weight (500) */
+  font-size: 17.51px; /* 17.51px size */
+  line-height: 25.5px; /* 25.5px line height */
+  text-align: center; /* Center the text */
+  color: #000; /* Black color */
+  text-decoration: underline; /* Underline the text */
+  width: 100%; /* Occupy full width of .mapButton */
+  height: 100%; /* Occupy full height of .mapButton */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+}
