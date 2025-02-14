@@ -5,9 +5,13 @@
   }
   
   .title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #000;
+    font-family: 'Poppins'; /* Use Poppins font */
+    font-weight: 600; /* Medium weight (600) */
+    font-size: 47.12px; /* 47.12px size */
+    line-height: 76.18px; /* 76.18px line height */
+    width: 238px; /* 238px width */
+    height: 77px; /* 77px height */
+    color: #000; /* Black color */
   }
   
   .teamGrid {
@@ -24,31 +28,22 @@
   }
   
   .name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .role {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 15px;
-  }
-  .social{
-    width: 30.47px;
-    height:29.87px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
+    font-family: 'Poppins'; /* Poppins font */
+    font-weight: 500; /* Medium weight (500) */
+    font-size: 26px; /* 26px size */
+    line-height: 39px; /* 39px line height */
+    text-align: center; /* Center the text */
+    color: #000; /* Black color */
+}
 
-  .socialLinks a {
-    margin: 0 10px;
-    font-size: 1.2rem;
-    color: #000;
-    text-decoration: none;
-  }
-  
-  .socialLinks a:hover {
-    color: #007bff;
-  }
-  
+.role {
+    font-family: 'Poppins'; /* Poppins font */
+    font-weight: 400; /* Regular weight (400) */
+    font-size: 20px; /* 20px size */
+    line-height: 30px; /* 30px line height */
+    text-align: center; /* Center the text */
+}
+
+.socialLinks a {
+  display: inline-block; /* Needed for vertical alignment */
+}
