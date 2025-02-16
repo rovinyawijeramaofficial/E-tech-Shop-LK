@@ -1,12 +1,20 @@
 
 /* Title */
-.branchesTitle {
+.desktopTitle{
+  font-family: 'Poppins'; /* Use Poppins font */
+  font-weight: 600; /* Medium weight (600) */
+  font-size: 47.12px; /* 47.12px size */
+  line-height: 76.18px; /* 76.18px line height */
+  height: 77px; /* 77px height */
+  color: #000; /* Black color */
+}
+
+.mobileTitle {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 47.12px;
-  line-height: 76.18px;
-  color: #000;
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: #000;
 }
 
 .branchesContainer {
