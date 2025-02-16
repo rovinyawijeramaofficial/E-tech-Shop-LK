@@ -23,7 +23,7 @@ const Branches = () => {
       {/* Desktop View - Hidden on Mobile */}
       <div className="hidden md:block">
         <div className="mt-20 flex justify-center">
-          <h2 className={styles.branchesTitle}>Our Branches</h2>
+          <h2 className={styles.desktopTitle}>Our Branches</h2>
         </div>
         <div className="relative w-full flex">
           <div
@@ -71,7 +71,7 @@ const Branches = () => {
       {/* Mobile View - Hidden on Desktop */}
       <div className="block md:hidden px-4 py-6">
       <div className="mt-5 flex justify-center">
-        <h2 className={styles.branchesTitle}>Our Branches</h2>
+        <h2 className={styles.mobileTitle}>Our Branches</h2>
       </div>
       <br/>
         <div className="flex flex-col gap-5">
