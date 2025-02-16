@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 const Team = () => {
   const teamMembers = [
     {
-      name: 'Dhananjaya Pasan Wijesiri',
+      name: 'Dhananjaya  ',
       role: 'CEO',
       image: '/images/Rectangle 75.png',
       social: {
@@ -59,11 +59,12 @@ const Team = () => {
   return (
     <div className={styles.teamSection}>
       <div className="mt-5 flex justify-center">
-        <h2 className={styles.title}>Our Team</h2>
+        {/* Title with separate styles for Desktop & Mobile */}
+        <h2 className={isMobile ? styles.mobileTitle : styles.desktopTitle}>Our Team</h2>
       </div>
       <br /> <br />
-      
-      {/* Desktop View */}
+
+      {/* Desktop View (Hidden on Mobile) */}
       {!isMobile && (
         <div className={styles.teamGrid}>
           {teamMembers.map((member, index) => (
@@ -87,25 +88,32 @@ const Team = () => {
         </div>
       )}
 
-      {/* Mobile View - Show Only One Team Member */}
-      {isMobile && (
-        <div className={styles.teamCard}>
-          <img src={teamMembers[0].image} alt={teamMembers[0].name} className={styles.image} />
-          <h3 className={styles.name}>{teamMembers[0].name}</h3>
-          <p className={styles.role}>{teamMembers[0].role}</p>
-          <div className={`${styles.socialLinks} mt-2`}>
-            <a href={teamMembers[0].social.facebook} target="_blank" rel="noreferrer">
-              <img src="/images/facebook.png" alt="Facebook" />
-            </a>
-            <a href={teamMembers[0].social.twitter} target="_blank" rel="noreferrer">
-              <img src="/images/twitter.png" alt="Twitter" />
-            </a>
-            <a href={teamMembers[0].social.linkedin} target="_blank" rel="noreferrer">
-              <img src="/images/LinkedIn.png" alt="LinkedIn" />
-            </a>
-          </div>
-        </div>
-      )}
+      {/* Mobile View (4 Members in Grid) */}
+{isMobile && (
+    <div className={styles.mobileTeamGrid}>
+        {teamMembers.map((member, index) => (
+            <div key={index} className={styles.mobileTeamCard}>
+                <img src={member.image} alt={member.name} className={styles.image} />
+
+                <div className={styles.mobileCardContent}> {/* New wrapper for content */}
+                    <h3 className={styles.name}>{member.name}</h3>
+                    <p className={styles.role}>{member.role}</p>
+                    <div className={`${styles.socialLinks} mt-2`}>
+                        <a href={member.social.facebook} target="_blank" rel="noreferrer">
+                            <img src="/images/facebook.png" alt="Facebook" />
+                        </a>
+                        <a href={member.social.twitter} target="_blank" rel="noreferrer">
+                            <img src="/images/twitter.png" alt="Twitter" />
+                        </a>
+                        <a href={member.social.linkedin} target="_blank" rel="noreferrer">
+                            <img src="/images/LinkedIn.png" alt="LinkedIn" />
+                        </a>
+                    </div>
+                </div> {/* End of mobileCardContent */}
+            </div>
+        ))}
+    </div>
+)}
     </div>
   );
 };
