@@ -48,12 +48,12 @@
 
 /* 🔹 First row shifted slightly left */
 .firstRow {
-  transform: translateX(-70px);
+  transform: translateX(-20px);
 }
 
 /* 🔹 Second row shifted slightly right */
 .secondRow {
-  transform: translateX(-165px) translateY(0px);
+  transform: translateX(-115px) translateY(0px);
 }
 
 .card {
@@ -82,10 +82,9 @@
 .rating {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
   justify-content: flex-start; /* Align stars to the left */
   width: 100%;
-  
+  padding-left: 10px; /* Ensures alignment with text */
 }
 
 .star {
@@ -94,14 +93,16 @@
   margin-right: 0.2rem;
 }
 
-.text {
+/* Adjusts text alignment */
+.text, .author {
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   line-height: 29.12px;
   color: #000000;
-  text-align: left;
-  width: 431px;
+  text-align: left; /* Ensures left alignment */
+  width: 100%; /* Adjust width to prevent overflow */
+  padding-left: 10px; /* Matches star alignment */
 }
 
 .author {
@@ -110,6 +111,7 @@
   font-weight: 500;
   line-height: 29.12px;
   color: #000000;
-  text-align: left;
-  width: 431px;
+  text-align: left; /* Ensures left alignment */
+  width: 100%; /* Adjust width to prevent overflow */
+  padding-left: 10px; /* Matches star alignment */
 }
